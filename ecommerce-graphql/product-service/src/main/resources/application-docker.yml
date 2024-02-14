@@ -1,0 +1,11 @@
+server:
+    port: 8081
+
+spring:
+  application:
+    name: product-rest
+  data:
+    mongodb:
+      host: mongo-container
+      port: 27017
+      database: product-rest

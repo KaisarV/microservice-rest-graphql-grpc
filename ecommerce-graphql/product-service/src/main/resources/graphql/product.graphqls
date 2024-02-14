@@ -1,0 +1,36 @@
+type Product {
+    id: Int!
+    productCode: String!
+    productTitle: String!
+    imageUrl: String!
+    discountOffer: Float!
+    price: Float!
+    currentPrice: Float!
+}
+
+input ProductRequest {
+    id: Int!
+    productCode: String!
+    productTitle: String!
+    imageUrl: String!
+    discountOffer: Float!
+    price: Float!
+    currentPrice: Float!
+}
+
+input AddPriceRequest {
+    id: Int!
+    price: Float!
+}
+
+type Query {
+    allProducts: [Product]!
+    productById(id: Int!): Product
+}
+
+type Mutation {
+    addProduct(productRequest: ProductRequest!): Product!
+#    addOffer(productRequest: ProductRequest!): Product!
+    addPrice(addPriceRequest: AddPriceRequest!): Product!
+}
+
