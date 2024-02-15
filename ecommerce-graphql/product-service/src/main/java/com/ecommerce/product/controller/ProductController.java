@@ -1,6 +1,7 @@
 package com.ecommerce.product.controller;
 
 import com.ecommerce.product.collection.Product;
+import com.ecommerce.product.collection.request.AddOfferRequest;
 import com.ecommerce.product.collection.request.AddPriceRequest;
 import com.ecommerce.product.collection.request.ProductRequest;
 import com.ecommerce.product.service.ProductService;
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Slf4j
-@CrossOrigin(origins="http://localhost:3000", allowedHeaders="*")
+@RestController
 public class ProductController {
     @Autowired
     private ProductService productService;
@@ -33,6 +34,12 @@ public class ProductController {
     @MutationMapping
     public Product addProduct(@Argument ProductRequest productRequest) {
         return productService.saveProduct(productRequest);
+    }
+
+    @MutationMapping
+    public Product addOffer(@Argument AddOfferRequest addOfferRequest) {
+        System.out.println(addOfferRequest.getId().toString()+ "AAAAAAAAAAAAAA");
+        return productService.addProductOffer(addOfferRequest.getId(), addOfferRequest.getDiscountOffer());
     }
 
     @MutationMapping

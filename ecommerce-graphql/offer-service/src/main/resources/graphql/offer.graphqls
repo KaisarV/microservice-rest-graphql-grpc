@@ -1,0 +1,8 @@
+
+
+type OfferRequest {
+    id : Int!
+    productId : Int!
+    discountOffer : Float!
+}
+

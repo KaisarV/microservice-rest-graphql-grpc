@@ -51,13 +51,15 @@ public class ProductService {
         return productRepository.findById(productId);
     }
 
-    public void addProductOffer(Integer productId, Double discountOffer) {
+    public Product addProductOffer(Integer productId, Double discountOffer) {
         Optional<Product> product = getProductById(productId);
         if(product.isPresent() && product.get().getPrice() != null){
             Double discountPrice = (discountOffer*product.get().getPrice())/100;
             product.get().setCurrentPrice(product.get().getPrice()-discountPrice);
             product.get().setDiscountOffer(discountOffer);
-            productRepository.save(product.get());
+            return productRepository.save(product.get());
+        } else {
+            return null;
         }
     }
 
