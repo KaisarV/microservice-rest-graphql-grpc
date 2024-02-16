@@ -1,8 +1,25 @@
-
-
-type OfferRequest {
+input OfferRequest {
     id : Int!
     productId : Int!
     discountOffer : Float!
 }
 
+type Response {
+    status : Int!
+    message : String!
+}
+
+type Offer {
+    id : Int!
+    productId : Int!
+    discountOffer : Float!
+}
+
+
+type Query {
+    allOffers: [Offer]!
+}
+
+type Mutation {
+    addOffer(offerRequest: OfferRequest!): Response
+}

@@ -20,6 +20,7 @@ input ProductRequest {
 
 input AddOfferRequest {
     id: Int!
+    productId: Int!
     discountOffer: Float!
 }
 

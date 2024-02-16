@@ -16,3 +16,4 @@ public class OfferRequest {
     private Integer productId;
     private Double discountOffer;
 }
+

@@ -39,7 +39,7 @@ public class ProductController {
     @MutationMapping
     public Product addOffer(@Argument AddOfferRequest addOfferRequest) {
         System.out.println(addOfferRequest.getId().toString()+ "AAAAAAAAAAAAAA");
-        return productService.addProductOffer(addOfferRequest.getId(), addOfferRequest.getDiscountOffer());
+        return productService.addProductOffer(addOfferRequest.getProductId(), addOfferRequest.getDiscountOffer());
     }
 
     @MutationMapping

@@ -13,5 +13,6 @@ import org.springframework.data.annotation.Id;
 public class AddOfferRequest {
     @Id
     private Integer id;
+    private Integer productId;
     private Double discountOffer;
 }
