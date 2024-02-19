@@ -15,9 +15,23 @@ type Offer {
     discountOffer : Float!
 }
 
+type Product {
+    productTitle : String !
+    imageUrl : String!
+    discountOffer : Float!
+    price : Float!
+    currentPrice :  Float!
+}
+
+type ResponseTemplateVO {
+    offer : Offer!
+    product : Product!
+}
+
 
 type Query {
     allOffers: [Offer]!
+    offerWithProduct(id : Int): ResponseTemplateVO!
 }
 
 type Mutation {

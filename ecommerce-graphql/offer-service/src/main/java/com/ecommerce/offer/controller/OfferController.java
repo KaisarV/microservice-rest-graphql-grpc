@@ -38,19 +38,13 @@ public class OfferController {
         return offerService.addProductOffer(offerRequest);
     }
 
-//    @PostMapping("/offer")
-//    public void addProductOffer(@RequestBody OfferRequest offerRequest) {
-//        offerRequest.setId(service.getSequenceNumber(Offer.SEQUENCE_NAME));
-//        offerService.addProductOffer(offerRequest);
-//    }
-//
     @QueryMapping
     public List<Offer> allOffers(){
         return offerService.getOffers();
     }
-//
-//    @GetMapping("/{id}")
-//    public ResponseTemplateVO getOfferWithProduct(@PathVariable("id") Integer id) {
-//        return offerService.getOfferWithPro duct(id);
-//    }
+
+    @QueryMapping
+    public ResponseTemplateVO offerWithProduct(@Argument Integer id) {
+        return offerService.getOfferWithProduct(id);
+    }
 }

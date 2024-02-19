@@ -6,6 +6,9 @@ import com.ecommerce.offer.collection.Offer;
 import com.ecommerce.offer.collection.Response;
 import com.ecommerce.offer.collection.request.OfferRequest;
 import com.ecommerce.offer.repository.OfferRepository;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,7 +61,6 @@ public class OfferService {
         // Buat entity untuk request
         HttpEntity<String> requestEntity = new HttpEntity<>(graphqlRequestBody, headers);
 
-        System.out.println("AAAAAAAAAAAAAAA");
         // Panggil API GraphQL
         String graphqlUrl = "http://localhost:8081/graphql"; // Sesuaikan dengan URL GraphQL Anda
         String response = restTemplate.exchange(graphqlUrl, HttpMethod.POST, requestEntity, String.class).getBody();
@@ -89,10 +91,33 @@ public class OfferService {
         ResponseTemplateVO vo = new ResponseTemplateVO();
         Offer offer = offerRepository.findByid(id);
 
-        Product product = restTemplate.getForObject("http://localhost:8081/product-rest/product/" + offer.getProductId(),Product.class);
+        String graphqlRequestBody = "{ \"query\": \"query { productById(id: " + id.toString() + ") { productTitle, imageUrl, discountOffer, price, currentPrice }}\" }";
+
+        // Buat header untuk request
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        // Buat entity untuk request
+        HttpEntity<String> requestEntity = new HttpEntity<>(graphqlRequestBody, headers);
+
+        // Panggil API GraphQL
+        String graphqlUrl = "http://localhost:8081/graphql"; // Sesuaikan dengan URL GraphQL Anda
+        ResponseEntity<String> responseEntity = restTemplate.exchange(graphqlUrl, HttpMethod.POST, requestEntity, String.class);
+        String response = responseEntity.getBody();
+
+        // Parse respons GraphQL dan setel objek Product dalam ResponseTemplateVO
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            JsonNode jsonNode = objectMapper.readTree(response);
+            JsonNode productNode = jsonNode.get("data").get("productById");
+            Product product = objectMapper.treeToValue(productNode, Product.class);
+            vo.setProduct(product);
+        } catch (JsonProcessingException e) {
+            // Handle error saat parsing JSON
+            e.printStackTrace();
+        }
 
         vo.setOffer(offer);
-        vo.setProduct(product);
 
         return vo;
     }

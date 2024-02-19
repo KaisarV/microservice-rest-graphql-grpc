@@ -1,0 +1,212 @@
+% Tipe dokumen adalah report dengan satu kolom. 
+% Menggatur setting halaman 
+\documentclass[12pt, a4paper, onecolumn, oneside, final]{report}
+\makeatother
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{array}
+\setlength\extrarowheight{4pt}
+\usepackage{tabu}
+
+\usepackage{ragged2e}
+
+\usepackage{tabto}
+\newenvironment{tabs}[1]
+{\TabPositions{#1}}
+
+\usepackage{longtable}	
+
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}                                     
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\usepackage{colortbl}
+
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{pifont}
+
+% Load konfigurasi LaTeX untuk tipe laporan thesis
+\usepackage{if_ithb}
+\usepackage{enumitem}
+\usepackage{multirow}
+
+\usepackage[ruled,vlined,linesnumbered,algo2e,resetcount,algochapter]{algorithm2e}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{chngcntr} %Comment that out for newer versions of LaTeX
+\counterwithin{algorithm}{chapter}
+\usepackage{pdflscape}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\renewcommand{\thealgorithm}{\arabic{chapter}.\arabic{algorithm}} 
+
+\newcommand\listappendixname{DAFTAR LAMPIRAN}
+\newcommand\appcaption[1]{%
+   \addcontentsline{app}{chapter}{#1}}
+\makeatletter
+\newcommand\listofappendices{%
+   \chapter*{\listappendixname}\@starttoc{app}}
+\makeatother
+
+\renewcommand\listalgorithmname{DAFTAR ALGORITMA}
+\renewcommand\appcaption[1]{%
+   \addcontentsline{app}{chapter}{#1}}
+\makeatletter
+\renewcommand\listofalgorithms{%
+   \chapter*{\listalgorithmname}\@starttoc{app}}
+\makeatother
+
+% Daftar pemenggalan suku kata dan istilah dalam LaTeX
+\include{hype.indonesia}
+
+% Variabel baru untuk menyimpan nomor halaman
+\newcounter{originalpagenumber}
+
+\setcounter{tocdepth}{4}
+
+% Awal bagian penulisan laporan
+\begin{document}
+	\captionsetup[algorithm]{font=footnotesize}
+
+	% Sampul Laporan
+	\include{text/sampul/cover}
+	\include{text/sampul/cover2}
+	
+	
+	% Daftar isi, gambar, dan tabel
+	% Gunakan penomeran Romawi (i, ii, iii, ...) setelah bagian ini.
+	\newcounter{savepage}
+	\pagenumbering{roman}
+	
+	% Halaman Penyataan Orisinalitas
+	\include{text/h_pernyataan_originalitas/halaman_pengesahan_originalitas}
+	
+	% Halaman Pengesahan
+	\include{text/h_pengesahan/halaman_pengesahan}
+	
+	% Halaman Publikasi
+	\include{text/h_publikasi/halaman_publikasi}
+	
+	% Lembar Abstrak
+	\phantomsection \addcontentsline{toc}{chapter}{ABSTRAK}
+	\include{text/abstrak/abstrak}
+
+	% Lembar Abstract
+	\phantomsection \addcontentsline{toc}{chapter}{ABSTRACT}
+	\include{text/abstrak/abstract}
+	\clearpage
+	
+    % Kata Pengantar
+	\phantomsection \addcontentsline{toc}{chapter}{KATA PENGANTAR}
+	\include{text/kata_pengantar/kata_pengantar}
+	
+	\vspace*{-2.5cm}
+	\phantomsection \addcontentsline{toc}{chapter}{DAFTAR ISI}
+	\tableofcontents
+	\clearpage
+	
+	\vspace*{-2.5cm}
+	\phantomsection \addcontentsline{toc}{chapter}{DAFTAR TABEL}
+	\listoftables
+	\clearpage
+	
+	\vspace*{-2.5cm}
+	\phantomsection \addcontentsline{toc}{chapter}{DAFTAR GAMBAR}
+	\listoffigures
+	
+	\vspace*{-2.5cm}
+    \phantomsection \addcontentsline{toc}{chapter}{DAFTAR ALGORITMA}
+    \listofalgorithms
+	
+	\vspace*{-2.5cm}
+	\phantomsection \addcontentsline{toc}{chapter}{DAFTAR LAMPIRAN}
+	\listofappendices
+	
+	
+	\clearpage
+	
+	\setcounter{savepage}{\arabic{page}}
+	\makeatletter
+	\def\MyPagenumbering#1{%
+		\global\c@page \@ne \gdef\thepage{\arabic{chapter}-\csname @#1\endcsname
+			\c@page}}
+	\makeatother
+	\pagestyle{fancy}
+	\renewcommand{\chaptermark}[1]{%
+		\markboth{BAB \thechapter \ #1}{}}
+	
+	\fancyhf{}
+	% Gunakan penomeran Arab (1, 2, 3, ...) setelah bagian ini.
+	\MyPagenumbering{arabic}
+	
+	% Untuk mengatur posisi pagenumber
+	%\pagestyle{plain}
+	\setlength\LTleft{0pt}            % default: \fill
+	\setlength\LTright{0pt}           % default: \fill
+	\lhead{\leftmark}
+	\renewcommand{\headrulewidth}{1pt}
+	
+	\fancypagestyle{plain}{%
+		\renewcommand{\headrulewidth}{0pt}%
+		\fancyhf{}%
+		\fancyfoot[R]{\arabic{chapter}-1}%
+	}
+	
+	\onehalfspacing
+	\rfoot{\arabic{chapter}-\arabic{page}}
+	
+	%Untuk melihat Tutorial Latex, hapus '%'
+	%\setcounter{page}{1}
+	%\include{text/Tutorial Latex/Tutorial Latex}
+	
+	\setcounter{page}{1}
+	\include{text/bab1/bab1}
+	
+	\setcounter{page}{1}
+	\include{text/bab2/bab2}
+	
+	\setcounter{page}{1}
+	\include{text/bab3/bab3}
+	
+	\setcounter{page}{1}
+	\include{text/bab4/bab4}
+	
+	\setcounter{page}{1}
+	\include{text/bab5/bab5}
+	
+	\pagenumbering{roman}
+	\setcounter{page}{\thesavepage}
+	\fancypagestyle{plain}{%
+		\renewcommand{\headrulewidth}{0pt}%
+		\fancyhf{}%
+		\fancyfoot[c]{\thepage}%
+	}
+	\rfoot{\thepage}
+	
+	\renewcommand{\bibname}{DAFTAR REFERENSI}
+	\setcounter{page}{1}
+%	\phantomsection \addcontentsline{toc}{chapter}{DAFTAR REFERENSI}
+	\include{text/pustaka/pustaka}
+	\cftsetindents{chap}{0pt}{\mylen}
+
+	% Lampiran 
+	\pagestyle{fancy}
+	\renewcommand{\chaptermark}[1]{%
+		\markboth{LAMPIRAN \thechapter \ #1}{}}
+		
+	\pagenumbering{arabic}% 
+	\setcounter{page}{1}
+	\setcounter{table}{0}
+	\renewcommand{\thepage}{A-\arabic{page}}
+	\renewcommand{\thetable}{\Alph{chapter}-\arabic{table}}
+	\renewcommand{\thepage}{\Alph{chapter}-\arabic{page}}
+	
+	
+	\begin{appendix}
+	\include{text/lampiran/lampiran_isi}
+	\rfoot{\Alph{chapter}-\arabic{page}}
+	\end{appendix}
+	
+\end{document}
