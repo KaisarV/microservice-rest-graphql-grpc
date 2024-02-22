@@ -1,11 +1,13 @@
 package com.devproblems.grpc.server;
 
+import com.devProblems.AddPriceRequest;
+import com.devProblems.Product;
+import com.devProblems.ProductRequest;
 import com.google.protobuf.Descriptors;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -19,20 +21,23 @@ public class ProductController {
         return productClientService.getProductById(Integer.parseInt(id));
     }
 
+    @GetMapping("/products")
+    public List<Map<Descriptors.FieldDescriptor, Object>> getAllProducts() throws InterruptedException {
+        return productClientService.getAllProducts();
+    }
 
+    @PostMapping("/addOffer")
+    public Map<Descriptors.FieldDescriptor, Object> saveOffer(@RequestBody Product product) {
+        return productClientService.saveOffer(product);
+    }
 
-//    @GetMapping("/book/{author_id}")
-//    public List<Map<Descriptors.FieldDescriptor, Object>> getBookByAuthor(@PathVariable String author_id) throws InterruptedException {
-//        return bookAuthorClientService.getBooksByAuthor(Integer.parseInt(author_id));
-//    }
-//
-//    @GetMapping("/book")
-//    public Map<String, Map<Descriptors.FieldDescriptor, Object>> getExpensiveBook() throws InterruptedException {
-//        return bookAuthorClientService.getExpensiveBook();
-//    }
-//
-//    @GetMapping("/book/author/{gender}")
-//    public List<Map<Descriptors.FieldDescriptor, Object>> getBookByGender(@PathVariable String gender) throws InterruptedException {
-//        return bookAuthorClientService.getBooksByGender(gender);
-//    }
+    @PostMapping("/product")
+    public Map<Descriptors.FieldDescriptor, Object> saveProduct(@RequestBody ProductRequest productRequest) {
+        return productClientService.saveProduct(productRequest);
+    }
+
+    @PutMapping("/addPrice")
+    public Map<Descriptors.FieldDescriptor, Object> addPrice(@RequestParam AddPriceRequest addPriceRequest) {
+        return productClientService.addPrice(addPriceRequest);
+    }
 }
