@@ -47,7 +47,7 @@ message ResponseTemplateVO {
 }
 
 service OfferService {
-  rpc AddProductOffer(OfferRequest) returns (Empty) {}
+  rpc AddProductOffer(OfferRequest) returns (Product) {}
   rpc GetOffers(Empty) returns (stream Offer) {}
   rpc GetOfferWithProduct(Offer) returns (ResponseTemplateVO) {}
 }

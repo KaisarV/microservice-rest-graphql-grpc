@@ -1,6 +1,7 @@
 package com.devproblems.grpc.client.repository;
 
-import com.ecommerce.offer.collection.Offer;
+
+import com.devproblems.grpc.client.collection.Offer;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

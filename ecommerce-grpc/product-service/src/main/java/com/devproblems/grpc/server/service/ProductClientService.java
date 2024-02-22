@@ -1,4 +1,4 @@
-package com.devproblems.grpc.server;
+package com.devproblems.grpc.server.service;
 
 
 import com.devProblems.*;

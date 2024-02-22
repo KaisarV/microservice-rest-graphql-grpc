@@ -1,8 +1,9 @@
-package com.devproblems.grpc.server;
+package com.devproblems.grpc.server.controller;
 
 import com.devProblems.AddPriceRequest;
 import com.devProblems.Product;
 import com.devProblems.ProductRequest;
+import com.devproblems.grpc.server.service.ProductClientService;
 import com.google.protobuf.Descriptors;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;

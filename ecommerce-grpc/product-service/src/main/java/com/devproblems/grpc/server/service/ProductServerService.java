@@ -1,4 +1,4 @@
-package com.devproblems.grpc.server;
+package com.devproblems.grpc.server.service;
 
 import com.devProblems.*;
 import com.devproblems.grpc.server.repository.ProductRepository;
@@ -19,7 +19,7 @@ public class ProductServerService extends ProductServiceGrpc.ProductServiceImplB
     @Override
     public void getProductById(Product request, StreamObserver<Product> responseObserver) {
         int productId = request.getId();
-
+        System.out.println(productId);
         Optional<com.devproblems.grpc.server.collection.Product> product1 =  productRepository.findById(productId);
 
         Product product2 = Product.newBuilder().

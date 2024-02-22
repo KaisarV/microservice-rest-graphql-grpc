@@ -1,6 +1,6 @@
 package com.devproblems.grpc.client.VO;
 
-import com.ecommerce.offer.collection.Offer;
+import com.devproblems.grpc.client.collection.Offer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
