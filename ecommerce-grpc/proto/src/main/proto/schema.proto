@@ -5,9 +5,8 @@ option java_multiple_files = true;
 
 package com.devProblems;
 
-
 message Product {
-  int32 id = 1;
+  int32 _id = 1;
   string productCode = 2;
   string productTitle = 3;
   string imageUrl = 4;
@@ -34,7 +33,7 @@ message DbSequence {
 service ProductService {
   rpc SaveProduct(ProductRequest) returns (Product) {}
   rpc GetAllProducts(Empty) returns (stream Product) {}
-  rpc GetProductById(google.protobuf.Int32Value) returns (Product) {}
+  rpc GetProductById(Product) returns (Product) {}
   rpc AddProductOffer(AddProductOfferRequest) returns (Product) {}
   rpc AddPrice(AddPriceRequest) returns (Product) {}
   rpc SaveOffer(Product) returns (Product) {}
