@@ -1,19 +1,13 @@
 package com.devproblems.grpc.server;
 
 import com.devProblems.*;
-import com.devproblems.grpc.server.repository.ProductProtobufRepository;
 import com.devproblems.grpc.server.repository.ProductRepository;
-import com.google.protobuf.Int32Value;
-import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.server.service.GrpcService;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
-import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 
 
 @GrpcService

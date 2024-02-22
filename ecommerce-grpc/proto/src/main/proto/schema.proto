@@ -29,6 +29,29 @@ message DbSequence {
   int32 seq = 2;
 }
 
+message Offer {
+  int32 id = 1;
+  int32 product_id = 2;
+  double discount_offer = 3;
+}
+
+message OfferRequest {
+  int32 id = 1;
+  int32 product_id = 2;
+  double discount_offer = 3;
+}
+
+message ResponseTemplateVO {
+  Offer offer = 1;
+  Product product = 2;
+}
+
+service OfferService {
+  rpc AddProductOffer(OfferRequest) returns (Empty) {}
+  rpc GetOffers(Empty) returns (stream Offer) {}
+  rpc GetOfferWithProduct(Offer) returns (ResponseTemplateVO) {}
+}
+
 // Service Definition
 service ProductService {
   rpc SaveProduct(ProductRequest) returns (Product) {}
@@ -38,6 +61,8 @@ service ProductService {
   rpc AddPrice(AddPriceRequest) returns (Product) {}
   rpc SaveOffer(Product) returns (Product) {}
 }
+
+
 
 message Empty {}
 
