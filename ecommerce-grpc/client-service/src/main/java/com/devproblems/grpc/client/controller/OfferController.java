@@ -1,11 +1,14 @@
 package com.devproblems.grpc.client.controller;
 
+import com.devProblems.ResponseTemplateVO;
+import com.devproblems.grpc.client.collection.Offer;
+import com.devproblems.grpc.client.collection.request.OfferRequest;
 import com.devproblems.grpc.client.service.OfferClientService;
+import com.devproblems.grpc.client.service.SequenceGeneratorService;
 import com.google.protobuf.Descriptors;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -15,25 +18,34 @@ import java.util.Map;
 @AllArgsConstructor
 public class OfferController {
 
-//    final OfferClientService bookAuthorClientService;
+    final OfferClientService offerClientService;
 
-//    @GetMapping("/author/{id}")
-//    public Map<Descriptors.FieldDescriptor, Object> getAuthor(@PathVariable String id) {
-//        return bookAuthorClientService.getAuthor(Integer.parseInt(id));
-//    }
-//
-//    @GetMapping("/book/{author_id}")
-//    public List<Map<Descriptors.FieldDescriptor, Object>> getBookByAuthor(@PathVariable String author_id) throws InterruptedException {
-//        return bookAuthorClientService.getBooksByAuthor(Integer.parseInt(author_id));
-//    }
-//
-//    @GetMapping("/book")
-//    public Map<String, Map<Descriptors.FieldDescriptor, Object>> getExpensiveBook() throws InterruptedException {
-//        return bookAuthorClientService.getExpensiveBook();
-//    }
-//
-//    @GetMapping("/book/author/{gender}")
-//    public List<Map<Descriptors.FieldDescriptor, Object>> getBookByGender(@PathVariable String gender) throws InterruptedException {
-//        return bookAuthorClientService.getBooksByGender(gender);
-//    }
+    @Autowired
+    private SequenceGeneratorService service;
+
+    @PostMapping("/offer")
+    public void addProductOffer(@RequestBody OfferRequest offerRequest) {
+        offerRequest.setId(service.getSequenceNumber(Offer.SEQUENCE_NAME));
+
+        com.devProblems.OfferRequest offerRequest1 = com.devProblems.OfferRequest.
+                newBuilder().
+                setId(offerRequest.getId()).
+                setProductId(offerRequest.getProductId()).
+                setDiscountOffer(offerRequest.getDiscountOffer()).build();
+
+        offerClientService.addProductOffer(offerRequest1);
+    }
+
+    @GetMapping("/offer")
+    public List<Map<Descriptors.FieldDescriptor, Object>> getOffers() throws InterruptedException{
+
+        return offerClientService.getAllOffers();
+    }
+
+    @GetMapping("/{id}")
+    public Map<Descriptors.FieldDescriptor, Object> getOfferWithProduct(@PathVariable("id") Integer id) {
+        return offerClientService.getOfferWithProduct(id);
+    }
+
+
 }
