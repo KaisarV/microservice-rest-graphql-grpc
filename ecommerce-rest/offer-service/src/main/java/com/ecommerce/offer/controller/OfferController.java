@@ -34,7 +34,7 @@ public class OfferController {
         return offerService.getOffers();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("offer/{id}")
     public ResponseTemplateVO getOfferWithProduct(@PathVariable("id") Integer id) {
         return offerService.getOfferWithProduct(id);
     }

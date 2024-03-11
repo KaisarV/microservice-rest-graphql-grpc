@@ -1,6 +1,5 @@
 package com.devproblems.grpc.client.controller;
 
-import com.devProblems.ResponseTemplateVO;
 import com.devproblems.grpc.client.collection.Offer;
 import com.devproblems.grpc.client.collection.request.OfferRequest;
 import com.devproblems.grpc.client.service.OfferClientService;

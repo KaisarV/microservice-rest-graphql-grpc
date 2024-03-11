@@ -1,4 +1,15 @@
+
 type Product {
+    id: Int!
+    productCode: String!
+    productTitle: String!
+    imageUrl: String!
+    discountOffer: Float!
+    price: Float!
+    currentPrice: Float!
+}
+
+input ProductInput {
     id: Int!
     productCode: String!
     productTitle: String!
@@ -15,7 +26,6 @@ input ProductRequest {
     imageUrl: String!
     discountOffer: Float!
     price: Float!
-    currentPrice: Float!
 }
 
 input AddOfferRequest {
@@ -36,7 +46,7 @@ type Query {
 
 type Mutation {
     addProduct(productRequest: ProductRequest!): Product!
-    addOffer(addOfferRequest: AddOfferRequest!): Product!
+    addOffer(product: ProductInput!): Product!
     addPrice(addPriceRequest: AddPriceRequest!): Product!
 }
 

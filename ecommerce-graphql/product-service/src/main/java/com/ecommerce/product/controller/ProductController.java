@@ -33,12 +33,15 @@ public class ProductController {
 
     @MutationMapping
     public Product addProduct(@Argument ProductRequest productRequest) {
+        productRequest.setId(service.getSequenceNumber(Product.SEQUENCE_NAME));
+        productRequest.setDiscountOffer(0.0);
         return productService.saveProduct(productRequest);
     }
 
+    //Only call by OfferAPI
     @MutationMapping
-    public Product addOffer(@Argument AddOfferRequest addOfferRequest) {
-        return productService.addProductOffer(addOfferRequest.getProductId(), addOfferRequest.getDiscountOffer());
+    public Product addOffer(@Argument Product product) {
+        return productService.saveOffer(product);
     }
 
     @MutationMapping

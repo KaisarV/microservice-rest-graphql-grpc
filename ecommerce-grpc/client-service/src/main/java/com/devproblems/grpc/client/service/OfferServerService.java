@@ -7,6 +7,9 @@ import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.client.inject.GrpcClient;
 import net.devh.boot.grpc.server.service.GrpcService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.server.WebServer;
+import org.springframework.context.ApplicationContext;
+import org.springframework.core.env.Environment;
 
 import java.util.List;
 import java.util.Optional;
@@ -20,6 +23,7 @@ public class OfferServerService extends OfferServiceGrpc.OfferServiceImplBase{
 
     @GrpcClient("grpc-product-service")
     ProductServiceGrpc.ProductServiceBlockingStub synchronousClient;
+
 
 
     @Override
@@ -83,7 +87,7 @@ public class OfferServerService extends OfferServiceGrpc.OfferServiceImplBase{
     public void getOfferWithProduct(Offer request,
                                     StreamObserver<ResponseTemplateVO> responseObserver) {
         int offerId = request.getId();
-
+        System.out.println("Ini dipanggil2");
         com.devproblems.grpc.client.collection.Offer offer = offerRepository.findByid(offerId);
         Product productRequest = Product.newBuilder().setId(offer.getProductId()).build();
         Product productResponse = synchronousClient.getProductById(productRequest);

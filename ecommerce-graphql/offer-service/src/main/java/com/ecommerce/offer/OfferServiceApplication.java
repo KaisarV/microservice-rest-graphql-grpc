@@ -33,7 +33,7 @@ public class OfferServiceApplication {
 
 	@Bean
 	public HttpGraphQlClient httpGraphQlClient() {
-		return HttpGraphQlClient.builder().url("http://localhost:8082/graphql").build();
+		return HttpGraphQlClient.builder().url("http://localhost:8182/offer-graphql").build();
 	}
 
 //	@Bean

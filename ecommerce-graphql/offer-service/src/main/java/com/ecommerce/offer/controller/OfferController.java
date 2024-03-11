@@ -1,8 +1,8 @@
 package com.ecommerce.offer.controller;
 
+import com.ecommerce.offer.VO.Product;
 import com.ecommerce.offer.VO.ResponseTemplateVO;
 import com.ecommerce.offer.collection.Offer;
-import com.ecommerce.offer.collection.Response;
 import com.ecommerce.offer.collection.request.OfferRequest;
 import com.ecommerce.offer.service.OfferService;
 import com.ecommerce.offer.service.SequenceGeneratorService;
@@ -33,7 +33,7 @@ public class OfferController {
     }
 
     @MutationMapping
-    public Response addOffer(@Argument OfferRequest offerRequest) {
+    public Product addOffer(@Argument OfferRequest offerRequest) {
         offerRequest.setId(service.getSequenceNumber(Offer.SEQUENCE_NAME));
         return offerService.addProductOffer(offerRequest);
     }

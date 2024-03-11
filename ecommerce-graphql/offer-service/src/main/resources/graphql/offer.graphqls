@@ -16,6 +16,8 @@ type Offer {
 }
 
 type Product {
+    id : Int!
+    productCode : Int!
     productTitle : String !
     imageUrl : String!
     discountOffer : Float!
@@ -35,5 +37,5 @@ type Query {
 }
 
 type Mutation {
-    addOffer(offerRequest: OfferRequest!): Response
+    addOffer(offerRequest: OfferRequest!): Product
 }

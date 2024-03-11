@@ -27,7 +27,7 @@ public class ProductService {
 
     public Product saveProduct(ProductRequest productRequest) {
         Double currentPrice = null;
-        if (productRequest.getDiscountOffer() != null && productRequest.getDiscountOffer() > 0){
+        if (productRequest.getDiscountOffer() != null || productRequest.getDiscountOffer() > 0){
             Double discountPrice = (productRequest.getDiscountOffer()*productRequest.getPrice())/100;
             currentPrice = productRequest.getPrice()-discountPrice;
         }
@@ -74,6 +74,7 @@ public class ProductService {
                 product.get().setCurrentPrice(addPriceRequest.getPrice()-discountPrice);
             } else {
                 product.get().setPrice(addPriceRequest.getPrice());
+                product.get().setCurrentPrice(addPriceRequest.getPrice());
             }
             return productRepository.save(product.get());
         } else {
@@ -82,13 +83,6 @@ public class ProductService {
     }
 
     public Product saveOffer(Product product) {
-        product.getId();
-        product.getProductCode();
-        product.getProductTitle();
-        product.getImageUrl();
-        product.getDiscountOffer();
-        product.getPrice();
-        product.getCurrentPrice();
         return productRepository.save(product);
     }
 

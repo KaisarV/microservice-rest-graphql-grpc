@@ -2,12 +2,17 @@ package com.devproblems.grpc.server.service;
 
 import com.devProblems.*;
 import com.devproblems.grpc.server.repository.ProductRepository;
+
+import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.server.service.GrpcService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+
 
 
 @GrpcService
@@ -20,21 +25,25 @@ public class ProductServerService extends ProductServiceGrpc.ProductServiceImplB
     public void getProductById(Product request, StreamObserver<Product> responseObserver) {
         int productId = request.getId();
         System.out.println(productId);
-        Optional<com.devproblems.grpc.server.collection.Product> product1 =  productRepository.findById(productId);
+        Optional<com.devproblems.grpc.server.collection.Product> product1 = productRepository.findById(productId);
 
-        Product product2 = Product.newBuilder().
-                setId(product1.get().getId()).
-                setProductCode(product1.get().getProductCode()).
-                setProductTitle(product1.get().getProductTitle()).
-                setImageUrl(product1.get().getImageUrl()).
-                setDiscountOffer(product1.get().getDiscountOffer()).
-                setPrice(product1.get().getPrice()).
-                setCurrentPrice(product1.get().getCurrentPrice())
-                .build();
+        if (product1.isPresent()) {
+            Product product2 = Product.newBuilder()
+                    .setId(product1.get().getId())
+                    .setProductCode(product1.get().getProductCode())
+                    .setProductTitle(product1.get().getProductTitle())
+                    .setImageUrl(product1.get().getImageUrl())
+                    .setDiscountOffer(product1.get().getDiscountOffer())
+                    .setPrice(product1.get().getPrice())
+                    .setCurrentPrice(product1.get().getCurrentPrice())
+                    .build();
 
-
-        responseObserver.onNext(product2);
-        responseObserver.onCompleted();
+            responseObserver.onNext(product2);
+            responseObserver.onCompleted();
+        } else {
+            // Handle jika product tidak ditemukan
+            responseObserver.onError(Status.NOT_FOUND.withDescription("Product with id " + productId + " not found").asRuntimeException());
+        }
     }
 
     @Override

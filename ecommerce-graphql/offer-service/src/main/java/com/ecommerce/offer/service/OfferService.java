@@ -3,14 +3,12 @@ package com.ecommerce.offer.service;
 import com.ecommerce.offer.VO.Product;
 import com.ecommerce.offer.VO.ResponseTemplateVO;
 import com.ecommerce.offer.collection.Offer;
-import com.ecommerce.offer.collection.Response;
 import com.ecommerce.offer.collection.request.OfferRequest;
 import com.ecommerce.offer.repository.OfferRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.client.HttpGraphQlClient;
 import org.springframework.http.*;
@@ -35,7 +33,7 @@ public class OfferService {
         this.httpGraphQlClient = httpGraphQlClient;
     }
 
-    public Response addProductOffer(OfferRequest offerRequest) {
+    public Product addProductOffer(OfferRequest offerRequest) {
         Optional<Offer> offer = offerRepository.findByProductId(offerRequest.getProductId());
         ResponseTemplateVO vo = new ResponseTemplateVO();
 
@@ -51,36 +49,73 @@ public class OfferService {
 
         offerRepository.save(offer.get());
 
-        // Buat body request GraphQL
-        String graphqlRequestBody = "{ \"query\": \"mutation { addOffer(addOfferRequest: {id: " + offerRequest.getId() + ", productId: "  + offerRequest.getProductId() +
-                ", discountOffer: " + offerRequest.getDiscountOffer() + "}) { productTitle, imageUrl, discountOffer, price, currentPrice }}\" }";
-        // Buat header untuk request
+
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
+        String graphqlUrl = "http://localhost:8181/graphql";
 
-        // Buat entity untuk request
-        HttpEntity<String> requestEntity = new HttpEntity<>(graphqlRequestBody, headers);
+        String graphqlRequestProductById = "{ \"query\": \"query { productById(id: " + offerRequest.getProductId() + ") { productCode, productTitle, imageUrl, price}}\" }";
 
-        // Panggil API GraphQL
-        String graphqlUrl = "http://localhost:8081/graphql"; // Sesuaikan dengan URL GraphQL Anda
-        String response = restTemplate.exchange(graphqlUrl, HttpMethod.POST, requestEntity, String.class).getBody();
+        HttpEntity<String> requestProductById = new HttpEntity<>(graphqlRequestProductById, headers);
 
-        System.out.println(response);
+        String response = restTemplate.exchange(graphqlUrl, HttpMethod.POST, requestProductById, String.class).getBody();
+        ResponseEntity<String> responseEntity = restTemplate.exchange(graphqlUrl, HttpMethod.POST, requestProductById, String.class);
 
-        ResponseEntity<String> responseEntity = restTemplate.exchange(graphqlUrl, HttpMethod.POST, requestEntity, String.class);
 
-        // Dapatkan status respons dari responsEntity
-        HttpStatus status = responseEntity.getStatusCode();
+        try {
+            // Inisialisasi ObjectMapper dari Jackson
+            ObjectMapper objectMapper = new ObjectMapper();
+            // Membaca JSON string ke dalam JsonNode
+            JsonNode rootNode = objectMapper.readTree(response);
+            // Mengambil objek langsung dari properti 'productById'
+            JsonNode productNode = rootNode.get("data").get("productById");
+            Product product = objectMapper.treeToValue(productNode, Product.class);
 
-        Response response2 = new Response();
-        response2.setStatus(status.value());
-        if (status.is2xxSuccessful()) {
-            response2.setMessage("Success");
-        } else {
-            response2.setMessage("Error");
+            Double discountPrice = (offerRequest.getDiscountOffer()*product.getPrice())/100;
+            product.setCurrentPrice(product.getPrice()-discountPrice);
+            product.setDiscountOffer(offerRequest.getDiscountOffer());
+            product.setId(offerRequest.getProductId());
+
+            String saveOfferRequestBody = String.format(
+                    "{\"query\": \"mutation { " +
+                            "addOffer(product : { " +
+                            "id : %s, " +
+                            "productCode : \\\"%s\\\", " +
+                            "productTitle : \\\"%s\\\", " +
+                            "imageUrl : \\\"%s\\\", " +
+                            "discountOffer : %f, " +
+                            "currentPrice : %f, " +
+                            "price : %f " +
+                            "}) { " +
+                            "id, productCode, productTitle, imageUrl, discountOffer, price, currentPrice" +
+                            "}}\"}",
+                    product.getId(),
+                    product.getProductCode(),
+                    product.getProductTitle(),
+                    product.getImageUrl(),
+                    product.getDiscountOffer(),
+                    product.getCurrentPrice(),
+                    product.getPrice()
+            );
+            HttpEntity<String> requestSaveOffer = new HttpEntity<>(saveOfferRequestBody, headers);
+
+            String response2 = restTemplate.exchange(graphqlUrl, HttpMethod.POST, requestSaveOffer, String.class).getBody();
+            ResponseEntity<String> responseEntity2 = restTemplate.exchange(graphqlUrl, HttpMethod.POST, requestSaveOffer, String.class);
+            try {
+                rootNode = objectMapper.readTree(response2);
+                productNode = rootNode.get("data").get("addOffer");
+                product = objectMapper.treeToValue(productNode, Product.class);
+
+                System.out.println(product.getId());
+                System.out.println(responseEntity2);
+                return product;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-
-        return response2;
+        return  null;
     }
 
     public List<Offer> getOffers() {
@@ -91,7 +126,7 @@ public class OfferService {
         ResponseTemplateVO vo = new ResponseTemplateVO();
         Offer offer = offerRepository.findByid(id);
 
-        String graphqlRequestBody = "{ \"query\": \"query { productById(id: " + id.toString() + ") { productTitle, imageUrl, discountOffer, price, currentPrice }}\" }";
+        String graphqlRequestBody = "{ \"query\": \"query { productById(id: " + offer.getProductId() + ") {id, productCode, productTitle, imageUrl, discountOffer, price, currentPrice}}\" }";
 
         // Buat header untuk request
         HttpHeaders headers = new HttpHeaders();
@@ -101,7 +136,7 @@ public class OfferService {
         HttpEntity<String> requestEntity = new HttpEntity<>(graphqlRequestBody, headers);
 
         // Panggil API GraphQL
-        String graphqlUrl = "http://localhost:8081/graphql"; // Sesuaikan dengan URL GraphQL Anda
+        String graphqlUrl = "http://localhost:8181/graphql"; // Sesuaikan dengan URL GraphQL Anda
         ResponseEntity<String> responseEntity = restTemplate.exchange(graphqlUrl, HttpMethod.POST, requestEntity, String.class);
         String response = responseEntity.getBody();
 
@@ -121,4 +156,5 @@ public class OfferService {
 
         return vo;
     }
+
 }

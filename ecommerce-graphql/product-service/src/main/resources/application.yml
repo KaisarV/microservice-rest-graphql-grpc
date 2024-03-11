@@ -1,5 +1,5 @@
 server:
-    port: 8081
+    port: 8181
 
 
 spring:
@@ -8,10 +8,10 @@ spring:
       enabled: true
 
   websocket:
-    path: /graphql
+    path: /product-graphql
 
   application:
-    name: product-rest
+    name: product-graphql
   data:
     mongodb:
       host: localhost
