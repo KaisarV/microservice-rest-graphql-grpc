@@ -1,0 +1,17 @@
+server:
+  port: 8001
+
+spring:
+  application:
+    name: api-gateway-rest
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: product
+#          uri: http://localhost:8181
+#          predicates:
+#            - Path=/graphql/**
+#        - id: offer
+#          uri: http://localhost:8282
+#          predicates:
+#            - Path=/graphql/**

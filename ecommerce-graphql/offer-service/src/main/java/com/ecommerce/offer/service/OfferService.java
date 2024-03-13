@@ -101,13 +101,14 @@ public class OfferService {
 
             String response2 = restTemplate.exchange(graphqlUrl, HttpMethod.POST, requestSaveOffer, String.class).getBody();
             ResponseEntity<String> responseEntity2 = restTemplate.exchange(graphqlUrl, HttpMethod.POST, requestSaveOffer, String.class);
+
             try {
                 rootNode = objectMapper.readTree(response2);
                 productNode = rootNode.get("data").get("addOffer");
                 product = objectMapper.treeToValue(productNode, Product.class);
 
                 System.out.println(product.getId());
-                System.out.println(responseEntity2);
+                System.out.println(product.toString());
                 return product;
             } catch (Exception e) {
                 e.printStackTrace();
@@ -153,6 +154,7 @@ public class OfferService {
         }
 
         vo.setOffer(offer);
+
 
         return vo;
     }
