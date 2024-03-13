@@ -48,8 +48,6 @@ public class OfferClientService {
 
     public List<Map<Descriptors.FieldDescriptor, Object>> getAllOffers() throws InterruptedException {
 
-
-
         final CountDownLatch countDownLatch = new CountDownLatch(1);
         final List<Map<Descriptors.FieldDescriptor, Object>> response = new ArrayList<>();
         asynchronousClient.getOffers(Empty.newBuilder().build(), new StreamObserver<Offer>() {

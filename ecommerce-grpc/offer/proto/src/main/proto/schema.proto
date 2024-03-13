@@ -31,14 +31,14 @@ message DbSequence {
 
 message Offer {
   int32 id = 1;
-  int32 product_id = 2;
-  double discount_offer = 3;
+  int32 productId = 2;
+  double discountOffer = 3;
 }
 
 message OfferRequest {
   int32 id = 1;
-  int32 product_id = 2;
-  double discount_offer = 3;
+  int32 productId = 2;
+  double discountOffer = 3;
 }
 
 message ResponseTemplateVO {

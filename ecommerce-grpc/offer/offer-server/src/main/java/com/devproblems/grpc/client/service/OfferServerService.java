@@ -29,7 +29,7 @@ public class OfferServerService extends OfferServiceGrpc.OfferServiceImplBase{
     @Override
     public void addProductOffer(OfferRequest request,
                                 StreamObserver<Product> responseObserver) {
-
+        System.out.println(request.getProductId());
         Optional<com.devproblems.grpc.client.collection.Offer> offer = offerRepository.findByProductId(request.getProductId());
 
         if(offer.isPresent()){
