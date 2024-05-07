@@ -21,25 +21,24 @@ public class ProductController {
     @Autowired
     private SequenceGeneratorService service;
 
-    @PostMapping("/products")
+    @PostMapping("/product")
     public Product saveProduct(@RequestBody ProductRequest productRequest) {
         productRequest.setId(service.getSequenceNumber(Product.SEQUENCE_NAME));
         productRequest.setDiscountOffer(0.0);
         return productService.saveProduct(productRequest);
     }
 
-    //Only called by OfferService
     @PostMapping("/addOffer")
     public Product saveOffer(@RequestBody Product product) {
         return productService.saveOffer(product);
     }
 
     @PutMapping("/updatePrice")
-    public Product updatePrice(@RequestParam Integer id, @RequestParam Double price){
+    public Product addPrice(@RequestParam Integer id, @RequestParam Double price){
         return productService.updatePrice(id, price);
     }
 
-    @GetMapping("/products")
+    @GetMapping("/product")
     public List<Product> getAllProducts(){
         return productService.getAllProducts();
     }

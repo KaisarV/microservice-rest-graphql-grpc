@@ -66,11 +66,12 @@ public class ProductService {
         headers.setContentType(MediaType.APPLICATION_JSON);
         String graphqlUrl = "http://localhost:8181/graphql";
 
-        String allProductRequestBody = "{ \"query\": \"query { allProducts { productCode, productTitle, imageUrl, price}}\" }";
+        String allProductRequestBody = "{ \"query\": \"query { allProducts " +
+                "{ productCode, productTitle, imageUrl, price}}\" }";
 
         HttpEntity<String> allProductRequest = new HttpEntity<>(allProductRequestBody, headers);
-        String allProductResponse = restTemplate.exchange(graphqlUrl, HttpMethod.POST, allProductRequest, String.class).getBody();
-
+        String allProductResponse = restTemplate.exchange(graphqlUrl,
+                HttpMethod.POST, allProductRequest, String.class).getBody();
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             JsonNode rootNode = objectMapper.readTree(allProductResponse);
@@ -90,7 +91,7 @@ public class ProductService {
         headers.setContentType(MediaType.APPLICATION_JSON);
         String graphqlUrl = "http://localhost:8181/graphql";
 
-        String productByIdRequestBody = "{ \"query\": \"query { productById(id: " + productId + ") { productCode, productTitle, imageUrl, price}}\" }";
+        String productByIdRequestBody = "{ \"query\": \"query { productById(id: " + productId + ") { id, productCode, productTitle, imageUrl, discountOffer, price, currentPrice}}\" }";
 
         HttpEntity<String> productByIdRequest = new HttpEntity<>(productByIdRequestBody, headers);
         String productByIdResponse = restTemplate.exchange(graphqlUrl, HttpMethod.POST, productByIdRequest, String.class).getBody();
@@ -114,7 +115,8 @@ public class ProductService {
         headers.setContentType(MediaType.APPLICATION_JSON);
         String graphqlUrl = "http://localhost:8181/graphql";
 
-        String addPriceRequestBody = "{ \"query\": \"mutation { addPrice(id: " + productId + ", price : " + price + ") { productCode, productTitle, imageUrl, price}}\" }";
+
+        String addPriceRequestBody = "{ \"query\": \"mutation { addPrice(addPriceRequest : {id : " + productId + ", price : " + price + "}) { id, productCode, productTitle, imageUrl, discountOffer, price, currentPrice}}\" }";
 
         HttpEntity<String> addPriceRequest = new HttpEntity<>(addPriceRequestBody, headers);
         String addPriceResponse = restTemplate.exchange(graphqlUrl, HttpMethod.POST, addPriceRequest, String.class).getBody();

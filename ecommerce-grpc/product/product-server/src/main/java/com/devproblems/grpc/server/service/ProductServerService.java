@@ -7,10 +7,7 @@ import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.server.service.GrpcService;
 import org.springframework.beans.factory.annotation.Autowired;
-
-
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 
@@ -20,6 +17,9 @@ public class ProductServerService extends ProductServiceGrpc.ProductServiceImplB
 
     @Autowired
     private ProductRepository productRepository;
+
+    @Autowired
+    private SequenceGeneratorService service;
 
     @Override
     public void getProductById(Product request, StreamObserver<Product> responseObserver) {
@@ -75,10 +75,12 @@ public class ProductServerService extends ProductServiceGrpc.ProductServiceImplB
         if (productRequest.getDiscountOffer() != 0 && productRequest.getDiscountOffer() > 0){
             Double discountPrice = (productRequest.getDiscountOffer()*productRequest.getPrice())/100;
             currentPrice = productRequest.getPrice()-discountPrice;
+        }else {
+            currentPrice =productRequest.getPrice();
         }
 
         com.devproblems.grpc.server.collection.Product product = new com.devproblems.grpc.server.collection.Product().builder()
-                .id(productRequest.getId())
+                .id(service.getSequenceNumber(com.devproblems.grpc.server.collection.Product.SEQUENCE_NAME))
                 .productCode(productRequest.getProductCode())
                 .productTitle(productRequest.getProductTitle())
                 .imageUrl(productRequest.getImageUrl())

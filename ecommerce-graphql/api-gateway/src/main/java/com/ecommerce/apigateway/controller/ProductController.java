@@ -23,12 +23,6 @@ public class ProductController {
         return productService.saveProduct(productRequest);
     }
 
-//    //Only called by OfferService
-//    @PostMapping("/addOffer")
-//    public Product saveOffer(@RequestBody Product product) {
-//        return productService.saveOffer(product);
-//    }
-//
     @PutMapping("/updatePrice")
     public Product updatePrice(@RequestParam Integer id, @RequestParam Double price){
         return productService.updatePrice(id, price);
@@ -44,3 +38,7 @@ public class ProductController {
         return productService.getProductById(id);
     }
 }
+
+
+
+

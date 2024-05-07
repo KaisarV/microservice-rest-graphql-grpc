@@ -4,5 +4,8 @@ FROM openjdk:11
 ARG JAR_FILE=target/*.jar
 #Copy Konfigurasi Aplikasi dari JAR ke Image pada Kontainer
 COPY ${JAR_FILE} app.jar
+
+ENV SPRING_PROFILES_ACTIVE=docker
+
 #Executable File ketika kontainer dijalankan
 ENTRYPOINT ["java","-jar","/app.jar"]

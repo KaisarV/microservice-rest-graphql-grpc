@@ -27,7 +27,7 @@ message ProductRequest {
 message DbSequence {
   string id = 1;
   int32 seq = 2;
-} 
+}
 
 message Offer {
   int32 id = 1;
@@ -61,8 +61,6 @@ service ProductService {
   rpc AddPrice(AddPriceRequest) returns (Product) {}
   rpc SaveOffer(Product) returns (Product) {}
 }
-
-
 
 message Empty {}
 

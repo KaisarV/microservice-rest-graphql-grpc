@@ -85,7 +85,7 @@ public class OfferService {
         headers.setContentType(MediaType.APPLICATION_JSON);
         String graphqlUrl = "http://localhost:8182/graphql";
 
-        String offerWithProductRequestBody = "{ \"query\": \"query { offerWithProduct(id: " + id + ") { offer {discountOffer}, product{productTitle, price, currentPrice}}}\" }";
+        String offerWithProductRequestBody = "{ \"query\": \"query { offerWithProduct(id: " + id + ") { offer {id, productId, discountOffer}, product{id, productCode, productTitle, imageUrl, discountOffer, price, currentPrice}}}\" }";
 
         HttpEntity<String> offerWithProductRequest = new HttpEntity<>(offerWithProductRequestBody, headers);
         String offerWithProductResponse = restTemplate.exchange(graphqlUrl, HttpMethod.POST, offerWithProductRequest, String.class).getBody();

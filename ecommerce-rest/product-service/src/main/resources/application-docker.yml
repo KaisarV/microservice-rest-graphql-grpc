@@ -6,6 +6,6 @@ spring:
     name: product-rest
   data:
     mongodb:
-      host: mongo-container
+      host: ecommerce-mongo
       port: 27017
       database: product-rest

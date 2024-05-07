@@ -38,13 +38,13 @@ public class OfferService {
 
         offerRepository.save(offer.get());
 
-        Product product = restTemplate.getForObject("http://localhost:8081/product-rest/product/" + offerRequest.getProductId(),Product.class);
+        Product product = restTemplate.getForObject("http://product-rest:8081/product-rest/" + offerRequest.getProductId(),Product.class);
 
         Double discountPrice = (offerRequest.getDiscountOffer()*product.getPrice())/100;
         product.setCurrentPrice(product.getPrice()-discountPrice);
         product.setDiscountOffer(offerRequest.getDiscountOffer());
 
-        Product product2 = restTemplate.postForObject("http://localhost:8081/product-rest/addOffer", product, Product.class);
+        Product product2 = restTemplate.postForObject("http://product-rest:8081/product-rest/addOffer", product, Product.class);
 
         System.out.println(product2);
     }
@@ -57,7 +57,7 @@ public class OfferService {
         ResponseTemplateVO vo = new ResponseTemplateVO();
         Offer offer = offerRepository.findByid(id);
 
-        Product product = restTemplate.getForObject("http://localhost:8081/product-rest/product/" + offer.getProductId(),Product.class);
+        Product product = restTemplate.getForObject("http://product-rest:8081/product-rest/" + offer.getProductId(),Product.class);
 
         vo.setOffer(offer);
         vo.setProduct(product);

@@ -1,9 +1,9 @@
 server:
-  port: 8086
+  port: 8002
 
 grpc:
   server:
-    port: 9001
+    port: 9003
 
   client:
     grpc-product-service:
@@ -20,4 +20,4 @@ spring:
     mongodb:
       host: localhost
       port: 27017
-      database: offer-rest
+      database: product-rest

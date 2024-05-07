@@ -7,9 +7,6 @@ import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.client.inject.GrpcClient;
 import net.devh.boot.grpc.server.service.GrpcService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.server.WebServer;
-import org.springframework.context.ApplicationContext;
-import org.springframework.core.env.Environment;
 
 import java.util.List;
 import java.util.Optional;
@@ -20,15 +17,16 @@ public class OfferServerService extends OfferServiceGrpc.OfferServiceImplBase{
     @Autowired
     private OfferRepository offerRepository;
 
+    @Autowired
+    private SequenceGeneratorService service;
 
     @GrpcClient("grpc-product-service")
     ProductServiceGrpc.ProductServiceBlockingStub synchronousClient;
 
-
-
     @Override
     public void addProductOffer(OfferRequest request,
                                 StreamObserver<Product> responseObserver) {
+
         System.out.println(request.getProductId());
         Optional<com.devproblems.grpc.client.collection.Offer> offer = offerRepository.findByProductId(request.getProductId());
 
@@ -36,12 +34,11 @@ public class OfferServerService extends OfferServiceGrpc.OfferServiceImplBase{
             offer.get().setDiscountOffer(request.getDiscountOffer());
         }else {
             offer = Optional.ofNullable(new com.devproblems.grpc.client.collection.Offer().builder()
-                    .id(request.getId())
+                    .id(service.getSequenceNumber(com.devproblems.grpc.client.collection.Offer.SEQUENCE_NAME))
                     .productId(request.getProductId())
                     .discountOffer(request.getDiscountOffer())
                     .build());
         }
-
         offerRepository.save(offer.get());
 
         Product productRequest = Product.newBuilder().setId(request.getProductId()).build();
@@ -58,7 +55,6 @@ public class OfferServerService extends OfferServiceGrpc.OfferServiceImplBase{
                 setPrice(productResponse.getPrice()).
                 setCurrentPrice(productResponse.getPrice()-discountPrice)
                 .build();
-
 
         Product product = synchronousClient.saveOffer(product2);
 
@@ -87,8 +83,9 @@ public class OfferServerService extends OfferServiceGrpc.OfferServiceImplBase{
     public void getOfferWithProduct(Offer request,
                                     StreamObserver<ResponseTemplateVO> responseObserver) {
         int offerId = request.getId();
-        System.out.println("Ini dipanggil2");
+
         com.devproblems.grpc.client.collection.Offer offer = offerRepository.findByid(offerId);
+
         Product productRequest = Product.newBuilder().setId(offer.getProductId()).build();
         Product productResponse = synchronousClient.getProductById(productRequest);
 
@@ -96,6 +93,7 @@ public class OfferServerService extends OfferServiceGrpc.OfferServiceImplBase{
 
         ResponseTemplateVO responseTemplateVO = ResponseTemplateVO.newBuilder().setOffer(offer1).setProduct(productResponse).build();
 
+        System.out.println(responseTemplateVO);
         responseObserver.onNext(responseTemplateVO);
         responseObserver.onCompleted();
     }

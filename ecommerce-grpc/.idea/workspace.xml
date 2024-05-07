@@ -5,45 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b2a6551-f29c-40ac-b107-244c2058ef90" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-service/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-service/src/main/java/com/devproblems/grpc/client/OfferService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-service/src/main/java/com/devproblems/grpc/client/VO/Product.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-service/src/main/java/com/devproblems/grpc/client/VO/ResponseTemplateVO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-service/src/main/java/com/devproblems/grpc/client/collection/DbSequence.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-service/src/main/java/com/devproblems/grpc/client/collection/Offer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-service/src/main/java/com/devproblems/grpc/client/collection/request/OfferRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-service/src/main/java/com/devproblems/grpc/client/controller/OfferController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-service/src/main/java/com/devproblems/grpc/client/repository/OfferRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-service/src/main/java/com/devproblems/grpc/client/service/OfferClientService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-service/src/main/java/com/devproblems/grpc/client/service/OfferServerService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-service/src/main/java/com/devproblems/grpc/client/service/SequenceGeneratorService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-service/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/devproblems/grpc/server/ProductService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/devproblems/grpc/server/collection/DbSequence.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/devproblems/grpc/server/collection/Product.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/devproblems/grpc/server/collection/request/ProductRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/devproblems/grpc/server/controller/ProductController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/devproblems/grpc/server/repository/ProductRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/devproblems/grpc/server/service/ProductClientService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/devproblems/grpc/server/service/ProductServerService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto/src/main/proto/schema.proto" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/product/product-server/src/main/java/com/devproblems/grpc/server/service/SequenceGeneratorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/com/ecommerce/apigateway/ApiGatewayApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application-docker.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/test/java/com/ecommerce/apigateway/ApiGatewayApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/offer/offer-server/src/main/java/com/devproblems/grpc/client/controller/OfferController.java" beforeDir="false" afterPath="$PROJECT_DIR$/offer/offer-server/src/main/java/com/devproblems/grpc/client/controller/OfferController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/offer/offer-server/src/main/java/com/devproblems/grpc/client/service/OfferClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/offer/offer-server/src/main/java/com/devproblems/grpc/client/service/OfferClientService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/offer/offer-server/src/main/java/com/devproblems/grpc/client/service/OfferServerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/offer/offer-server/src/main/java/com/devproblems/grpc/client/service/OfferServerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/product-server/src/main/java/com/devproblems/grpc/server/service/ProductClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/product-server/src/main/java/com/devproblems/grpc/server/service/ProductClientService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/product-server/src/main/java/com/devproblems/grpc/server/service/ProductServerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/product/product-server/src/main/java/com/devproblems/grpc/server/service/ProductServerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ecommerce-rest/product-service/src/main/java/com/ecommerce/product/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ecommerce-rest/product-service/src/main/java/com/ecommerce/product/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ecommerce-rest/product-service/src/main/java/com/ecommerce/product/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ecommerce-rest/product-service/src/main/java/com/ecommerce/product/service/ProductService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +51,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/Metpen/microservice-app/ecommerce-grpc/product-service"
+    "last_opened_file_path": "E:/Metpen/microservice-app/ecommerce-grpc"
   }
 }]]></component>
   <component name="RunManager" selected="Application.OfferService">
@@ -105,13 +87,6 @@
         <item itemvalue="Application.ProductService" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-11.0.22-corretto-11.0.22-4caba194b151-868cef46" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
