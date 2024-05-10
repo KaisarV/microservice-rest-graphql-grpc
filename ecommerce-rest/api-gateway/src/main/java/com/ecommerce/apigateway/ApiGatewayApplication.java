@@ -11,7 +11,6 @@ import java.util.Arrays;
 
 @SpringBootApplication
 public class ApiGatewayApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(ApiGatewayApplication.class, args);
 	}
@@ -31,5 +30,4 @@ public class ApiGatewayApplication {
 		urlBasedCorsConfigurationSource.registerCorsConfiguration("/**", corsConfiguration);
 		return new CorsFilter(urlBasedCorsConfigurationSource);
 	}
-
 }

@@ -7,11 +7,11 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: product-service-rest
-          uri: http://product-service-rest:8081
+        - id: product-rest
+          uri: http://product-rest:8081
           predicates:
             - Path=/product-rest/**
-        - id: offer-service-rest
-          uri: http://offer-service-rest:8082
+        - id: product-rest
+          uri: http://offer-rest:8082
           predicates:
             - Path=/offer-rest/**
