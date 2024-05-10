@@ -21,7 +21,7 @@ public class OfferController {
     final OfferClientService offerClientService;
 
     @PostMapping("/offer")
-    public void addProductOffer(@RequestBody Offer offerRequest) {
+    public Map<Descriptors.FieldDescriptor, Object> addProductOffer(@RequestBody Offer offerRequest) {
 
         com.devProblems.OfferRequest offerRequest1 = com.devProblems.OfferRequest.
                 newBuilder().
@@ -29,7 +29,7 @@ public class OfferController {
                 setProductId(offerRequest.getProductId()).
                 setDiscountOffer(offerRequest.getDiscountOffer()).build();
 
-        offerClientService.addProductOffer(offerRequest1);
+        return offerClientService.addProductOffer(offerRequest1);
     }
 
     @GetMapping("/offer")
