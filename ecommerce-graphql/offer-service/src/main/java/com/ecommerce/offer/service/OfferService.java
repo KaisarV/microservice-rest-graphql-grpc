@@ -52,7 +52,7 @@ public class OfferService {
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        String graphqlUrl = "http://localhost:8181/graphql";
+        String graphqlUrl = "http://product-graphql:8181/graphql";
 
         String graphqlRequestProductById = "{ \"query\": \"query { productById(id: " + offerRequest.getProductId() + ") { productCode, productTitle, imageUrl, price}}\" }";
 
@@ -137,7 +137,7 @@ public class OfferService {
         HttpEntity<String> requestEntity = new HttpEntity<>(graphqlRequestBody, headers);
 
         // Panggil API GraphQL
-        String graphqlUrl = "http://localhost:8181/graphql"; // Sesuaikan dengan URL GraphQL Anda
+        String graphqlUrl = "http://product-graphql:8181/graphql"; // Sesuaikan dengan URL GraphQL Anda
         ResponseEntity<String> responseEntity = restTemplate.exchange(graphqlUrl, HttpMethod.POST, requestEntity, String.class);
         String response = responseEntity.getBody();
 

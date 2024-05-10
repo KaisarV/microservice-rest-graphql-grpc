@@ -32,7 +32,7 @@ public class OfferService {
                         "productId : %s, " +
                         "discountOffer : %f, " +
                         "}) { " +
-                        "id, productCode, productTitle, imageUrl, price, discountOffer, currentPrice" +
+                        "productTitle, imageUrl, discountOffer, currentPrice" +
                         "}}\"}",
                 offerRequest.getId(),
                 offerRequest.getProductId(),
@@ -61,7 +61,7 @@ public class OfferService {
         headers.setContentType(MediaType.APPLICATION_JSON);
         String graphqlUrl = "http://offer-graphql:8182/graphql";
 
-        String allOfferRequestBody = "{ \"query\": \"query { allOffers { id, productId, discountOffer}}\" }";
+        String allOfferRequestBody = "{ \"query\": \"query { allOffers { productId, discountOffer}}\" }";
 
         HttpEntity<String> allOfferRequest = new HttpEntity<>(allOfferRequestBody, headers);
         String allOfferResponse = restTemplate.exchange(graphqlUrl, HttpMethod.POST, allOfferRequest, String.class).getBody();
@@ -85,7 +85,7 @@ public class OfferService {
         headers.setContentType(MediaType.APPLICATION_JSON);
         String graphqlUrl = "http://offer-graphql:8182/graphql";
 
-        String offerWithProductRequestBody = "{ \"query\": \"query { offerWithProduct(id: " + id + ") { offer {id, productId, discountOffer}, product{id, productCode, productTitle, imageUrl, discountOffer, price, currentPrice}}}\" }";
+        String offerWithProductRequestBody = "{ \"query\": \"query { offerWithProduct(id: " + id + ") {product{id, productCode, productTitle, imageUrl, discountOffer, price, currentPrice}}}\" }";
 
         HttpEntity<String> offerWithProductRequest = new HttpEntity<>(offerWithProductRequestBody, headers);
         String offerWithProductResponse = restTemplate.exchange(graphqlUrl, HttpMethod.POST, offerWithProductRequest, String.class).getBody();

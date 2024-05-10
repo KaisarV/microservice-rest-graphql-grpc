@@ -22,7 +22,7 @@ public class OfferService {
     @Autowired
     private RestTemplate restTemplate;
 
-    public void addProductOffer(OfferRequest offerRequest) {
+    public Product addProductOffer(OfferRequest offerRequest) {
         Optional<Offer> offer = offerRepository.findByProductId(offerRequest.getProductId());
         ResponseTemplateVO vo = new ResponseTemplateVO();
 
@@ -46,7 +46,7 @@ public class OfferService {
 
         Product product2 = restTemplate.postForObject("http://localhost:8081/product-rest/addOffer", product, Product.class);
 
-        System.out.println(product2);
+        return product2;
     }
 
     public List<Offer> getOffers() {
@@ -57,7 +57,7 @@ public class OfferService {
         ResponseTemplateVO vo = new ResponseTemplateVO();
         Offer offer = offerRepository.findByid(id);
 
-        Product product = restTemplate.getForObject("http://product-rest:8081/product-rest/product/" + offer.getProductId(),Product.class);
+        Product product = restTemplate.getForObject("http://localhost:8081/product-rest/product/" + offer.getProductId(),Product.class);
 
         vo.setOffer(offer);
         vo.setProduct(product);

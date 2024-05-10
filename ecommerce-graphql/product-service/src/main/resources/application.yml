@@ -8,7 +8,7 @@ spring:
       enabled: true
 
   websocket:
-    path: /product-graphql
+    path: /graphql
 
   application:
     name: product-graphql

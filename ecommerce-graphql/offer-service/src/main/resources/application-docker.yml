@@ -1,11 +1,11 @@
 server:
-  port: 8082
+  port: 8182
 
 spring:
   application:
-    name: offer-rest
+    name: offer-graphql
   data:
     mongodb:
-      host: mongo-container
+      host: ecommerce-mongo
       port: 27017
-      database: offer-rest
+      database: offer-graphql

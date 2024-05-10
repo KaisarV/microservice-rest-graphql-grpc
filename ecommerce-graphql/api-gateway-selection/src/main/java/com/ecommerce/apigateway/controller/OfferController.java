@@ -1,20 +1,18 @@
-package com.ecommerce.offer.controller;
+package com.ecommerce.apigateway.controller;
 
-import com.ecommerce.offer.VO.Product;
-import com.ecommerce.offer.VO.ResponseTemplateVO;
-import com.ecommerce.offer.collection.Offer;
-import com.ecommerce.offer.collection.request.OfferRequest;
-import com.ecommerce.offer.service.OfferService;
-import com.ecommerce.offer.service.SequenceGeneratorService;
+import com.ecommerce.apigateway.collection.Offer;
+import com.ecommerce.apigateway.collection.Product;
+import com.ecommerce.apigateway.collection.request.OfferRequest;
+import com.ecommerce.apigateway.collection.request.ResponseTemplateVO;
+import com.ecommerce.apigateway.service.OfferService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
-@RequestMapping("/offer-rest")
+@RequestMapping("/offer-graphql")
 @Slf4j
 @CrossOrigin(origins="http://localhost:3000", allowedHeaders="*")
 public class OfferController {
@@ -22,12 +20,8 @@ public class OfferController {
     @Autowired
     private OfferService offerService;
 
-    @Autowired
-    private SequenceGeneratorService service;
-
     @PostMapping("/offer")
     public Product addProductOffer(@RequestBody OfferRequest offerRequest) {
-        offerRequest.setId(service.getSequenceNumber(Offer.SEQUENCE_NAME));
         return offerService.addProductOffer(offerRequest);
     }
 

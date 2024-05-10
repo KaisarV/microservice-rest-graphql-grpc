@@ -10,9 +10,9 @@ spring:
     path: /graphql
 
   application:
-    name: offer-rest
+    name: offer-graphql
   data:
     mongodb:
       host: localhost
       port: 27017
-      database: offer-rest
+      database: offer-graphql
