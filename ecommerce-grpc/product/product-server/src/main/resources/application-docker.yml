@@ -7,13 +7,13 @@ grpc:
 
   client:
     grpc-product-service:
-      address: static://localhost:9000
+      address: static://product-grpc:9000
       negotiationType: plaintext
 
 
 spring:
   data:
     mongodb:
-      host: localhost
+      host: ecommerce-mongo
       port: 27017
-      database: product-rest
+      database: product-grpc
