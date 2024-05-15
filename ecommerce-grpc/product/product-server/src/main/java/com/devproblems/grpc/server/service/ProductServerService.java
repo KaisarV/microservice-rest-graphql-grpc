@@ -52,7 +52,7 @@ public class ProductServerService extends ProductServiceGrpc.ProductServiceImplB
         List<com.devproblems.grpc.server.collection.Product> product1 =  productRepository.findAllByOrderByPriceAsc();
 
         for (com.devproblems.grpc.server.collection.Product p : product1) {
-            Product product = Product.newBuilder().
+            responseObserver.onNext(Product.newBuilder().
                     setId(p.getId()).
                     setProductCode(p.getProductCode()).
                     setProductTitle(p.getProductTitle()).
@@ -60,9 +60,7 @@ public class ProductServerService extends ProductServiceGrpc.ProductServiceImplB
                     setDiscountOffer(p.getDiscountOffer()).
                     setPrice(p.getPrice()).
                     setCurrentPrice(p.getCurrentPrice())
-                    .build();
-
-            responseObserver.onNext(product);
+                    .build());
         }
         responseObserver.onCompleted();
     }

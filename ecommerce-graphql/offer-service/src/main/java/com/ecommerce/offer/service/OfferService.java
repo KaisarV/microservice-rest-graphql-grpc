@@ -5,12 +5,10 @@ import com.ecommerce.offer.VO.ResponseTemplateVO;
 import com.ecommerce.offer.collection.Offer;
 import com.ecommerce.offer.collection.request.OfferRequest;
 import com.ecommerce.offer.repository.OfferRepository;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.graphql.client.HttpGraphQlClient;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -27,96 +25,60 @@ public class OfferService {
     @Autowired
     private RestTemplate restTemplate;
 
-    private final HttpGraphQlClient httpGraphQlClient;
+    @Autowired
+    private SequenceGeneratorService service;
 
-    public OfferService(HttpGraphQlClient httpGraphQlClient) {
-        this.httpGraphQlClient = httpGraphQlClient;
-    }
+    @Autowired
+    private ObjectMapper objectMapper;
+
+    private static final String GRAPHQL_URL = "http://product-graphql:8181/graphql";
 
     public Product addProductOffer(OfferRequest offerRequest) {
-        Optional<Offer> offer = offerRepository.findByProductId(offerRequest.getProductId());
-        ResponseTemplateVO vo = new ResponseTemplateVO();
+        Offer offer = offerRepository.findByProductId(offerRequest.getProductId())
+                .orElseGet(() -> new Offer(service.getSequenceNumber(Offer.SEQUENCE_NAME),
+                        offerRequest.getProductId(), offerRequest.getDiscountOffer()));
 
-        if(offer.isPresent()){
-            offer.get().setDiscountOffer(offerRequest.getDiscountOffer());
-        } else {
-            offer = Optional.ofNullable(new Offer().builder()
-                    .id(offerRequest.getId())
-                    .productId(offerRequest.getProductId())
-                    .discountOffer(offerRequest.getDiscountOffer())
-                    .build());
-        }
-
-        offerRepository.save(offer.get());
-
+        offer.setDiscountOffer(offerRequest.getDiscountOffer());
+        offerRepository.save(offer);
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        String graphqlUrl = "http://product-graphql:8181/graphql";
 
-        String graphqlRequestProductById = "{ \"query\": \"query { productById(id: " + offerRequest.getProductId() + ") { productCode, productTitle, imageUrl, price}}\" }";
-
-        HttpEntity<String> requestProductById = new HttpEntity<>(graphqlRequestProductById, headers);
-
-        String response = restTemplate.exchange(graphqlUrl, HttpMethod.POST, requestProductById, String.class).getBody();
-        ResponseEntity<String> responseEntity = restTemplate.exchange(graphqlUrl, HttpMethod.POST, requestProductById, String.class);
-
+        String productQuery = String.format("{\"query\": \"query { productById(id: %d) { productCode, productTitle, imageUrl, price}}\"}", offerRequest.getProductId());
+        HttpEntity<String> productRequest = new HttpEntity<>(productQuery, headers);
 
         try {
-            // Inisialisasi ObjectMapper dari Jackson
-            ObjectMapper objectMapper = new ObjectMapper();
-            // Membaca JSON string ke dalam JsonNode
-            JsonNode rootNode = objectMapper.readTree(response);
-            // Mengambil objek langsung dari properti 'productById'
-            JsonNode productNode = rootNode.get("data").get("productById");
-            Product product = objectMapper.treeToValue(productNode, Product.class);
+            ResponseEntity<String> productResponse = restTemplate.exchange(GRAPHQL_URL, HttpMethod.POST, productRequest, String.class);
 
-            Double discountPrice = (offerRequest.getDiscountOffer()*product.getPrice())/100;
-            product.setCurrentPrice(product.getPrice()-discountPrice);
-            product.setDiscountOffer(offerRequest.getDiscountOffer());
-            product.setId(offerRequest.getProductId());
+            if (productResponse.getStatusCode() == HttpStatus.OK) {
+                JsonNode productNode = objectMapper.readTree(productResponse.getBody()).path("data").path("productById");
+                Product product = objectMapper.treeToValue(productNode, Product.class);
 
-            String saveOfferRequestBody = String.format(
-                    "{\"query\": \"mutation { " +
-                            "addOffer(product : { " +
-                            "id : %s, " +
-                            "productCode : \\\"%s\\\", " +
-                            "productTitle : \\\"%s\\\", " +
-                            "imageUrl : \\\"%s\\\", " +
-                            "discountOffer : %f, " +
-                            "currentPrice : %f, " +
-                            "price : %f " +
-                            "}) { " +
-                            "id, productCode, productTitle, imageUrl, discountOffer, price, currentPrice" +
-                            "}}\"}",
-                    product.getId(),
-                    product.getProductCode(),
-                    product.getProductTitle(),
-                    product.getImageUrl(),
-                    product.getDiscountOffer(),
-                    product.getCurrentPrice(),
-                    product.getPrice()
-            );
-            HttpEntity<String> requestSaveOffer = new HttpEntity<>(saveOfferRequestBody, headers);
+                double discountPrice = (offerRequest.getDiscountOffer() * product.getPrice()) / 100;
+                product.setCurrentPrice(product.getPrice() - discountPrice);
+                product.setDiscountOffer(offerRequest.getDiscountOffer());
+                product.setId(offerRequest.getProductId());
 
-            String response2 = restTemplate.exchange(graphqlUrl, HttpMethod.POST, requestSaveOffer, String.class).getBody();
-            ResponseEntity<String> responseEntity2 = restTemplate.exchange(graphqlUrl, HttpMethod.POST, requestSaveOffer, String.class);
+                String addOfferMutation = String.format(
+                        "{\"query\": \"mutation { addOffer(product: { id: %d, productCode: \\\"%s\\\", productTitle: \\\"%s\\\", imageUrl: \\\"%s\\\", discountOffer: %f, currentPrice: %f, price: %f }) { id, productCode, productTitle, imageUrl, discountOffer, price, currentPrice }}\"}",
+                        product.getId(), product.getProductCode(), product.getProductTitle(), product.getImageUrl(), product.getDiscountOffer(), product.getCurrentPrice(), product.getPrice());
+                HttpEntity<String> saveOfferRequest = new HttpEntity<>(addOfferMutation, headers);
 
-            try {
-                rootNode = objectMapper.readTree(response2);
-                productNode = rootNode.get("data").get("addOffer");
-                product = objectMapper.treeToValue(productNode, Product.class);
+                ResponseEntity<String> saveOfferResponse = restTemplate.exchange(GRAPHQL_URL, HttpMethod.POST, saveOfferRequest, String.class);
 
-                System.out.println(product.getId());
-                System.out.println(product.toString());
-                return product;
-            } catch (Exception e) {
-                e.printStackTrace();
+                if (saveOfferResponse.getStatusCode() == HttpStatus.OK) {
+                    JsonNode updatedProductNode = objectMapper.readTree(saveOfferResponse.getBody()).path("data").path("addOffer");
+                    return objectMapper.treeToValue(updatedProductNode, Product.class);
+                } else {
+                    log.error("Failed to save offer. Status code: {}", saveOfferResponse.getStatusCode());
+                }
+            } else {
+                log.error("Failed to fetch product. Status code: {}", productResponse.getStatusCode());
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("Error processing offer: {}", e.getMessage());
         }
-        return  null;
+        return null;
     }
 
     public List<Offer> getOffers() {
@@ -125,38 +87,35 @@ public class OfferService {
 
     public ResponseTemplateVO getOfferWithProduct(Integer id) {
         ResponseTemplateVO vo = new ResponseTemplateVO();
-        Offer offer = offerRepository.findByid(id);
+        Offer offer = offerRepository.findById(id).orElse(null);
 
-        String graphqlRequestBody = "{ \"query\": \"query { productById(id: " + offer.getProductId() + ") {id, productCode, productTitle, imageUrl, discountOffer, price, currentPrice}}\" }";
-
-        // Buat header untuk request
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-
-        // Buat entity untuk request
-        HttpEntity<String> requestEntity = new HttpEntity<>(graphqlRequestBody, headers);
-
-        // Panggil API GraphQL
-        String graphqlUrl = "http://product-graphql:8181/graphql"; // Sesuaikan dengan URL GraphQL Anda
-        ResponseEntity<String> responseEntity = restTemplate.exchange(graphqlUrl, HttpMethod.POST, requestEntity, String.class);
-        String response = responseEntity.getBody();
-
-        // Parse respons GraphQL dan setel objek Product dalam ResponseTemplateVO
-        ObjectMapper objectMapper = new ObjectMapper();
-        try {
-            JsonNode jsonNode = objectMapper.readTree(response);
-            JsonNode productNode = jsonNode.get("data").get("productById");
-            Product product = objectMapper.treeToValue(productNode, Product.class);
-            vo.setProduct(product);
-        } catch (JsonProcessingException e) {
-            // Handle error saat parsing JSON
-            e.printStackTrace();
+        if (offer == null) {
+            log.error("Offer not found for id: {}", id);
+            return vo;
         }
 
         vo.setOffer(offer);
 
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        String productQuery = String.format("{\"query\": \"query { productById(id: %d) { id, productCode, productTitle, imageUrl, discountOffer, price, currentPrice }}\"}", offer.getProductId());
+        HttpEntity<String> request = new HttpEntity<>(productQuery, headers);
+
+        try {
+            ResponseEntity<String> response = restTemplate.exchange(GRAPHQL_URL, HttpMethod.POST, request, String.class);
+
+            if (response.getStatusCode() == HttpStatus.OK) {
+                JsonNode productNode = objectMapper.readTree(response.getBody()).path("data").path("productById");
+                Product product = objectMapper.treeToValue(productNode, Product.class);
+                vo.setProduct(product);
+            } else {
+                log.error("Failed to fetch product. Status code: {}", response.getStatusCode());
+            }
+        } catch (Exception e) {
+            log.error("Error fetching product for offer: {}", e.getMessage());
+        }
 
         return vo;
     }
-
 }

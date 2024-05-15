@@ -1,8 +1,8 @@
 package com.ecommerce.apigateway.service;
 
-
 import com.ecommerce.apigateway.collection.Product;
 import com.ecommerce.apigateway.collection.request.ProductRequest;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -17,25 +17,17 @@ import java.util.List;
 @Slf4j
 public class ProductService {
 
+    private static final String GRAPHQL_URL = "http://product-graphql:8181/graphql";
+
     @Autowired
     private RestTemplate restTemplate;
-    public Product saveProduct(ProductRequest productRequest) {
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-        String graphqlUrl = "http://product-graphql:8181/graphql";
 
-        String addProductRequestBody = String.format(
-                "{\"query\": \"mutation { " +
-                        "addProduct(productRequest : { " +
-                        "id : %s, " +
-                        "productCode : \\\"%s\\\", " +
-                        "productTitle : \\\"%s\\\", " +
-                        "imageUrl : \\\"%s\\\", " +
-                        "discountOffer : %f, " +
-                        "price : %f " +
-                        "}) { " +
-                        "id, productTitle, discountOffer, price" +
-                        "}}\"}",
+    @Autowired
+    private ObjectMapper objectMapper;
+
+    public Product saveProduct(ProductRequest productRequest) {
+        String mutation = String.format(
+                "mutation { addProduct(productRequest: { id: %s, productCode: \\\"%s\\\", productTitle: \\\"%s\\\", imageUrl: \\\"%s\\\", discountOffer: %f, price: %f }) { productTitle, imageUrl, price }}",
                 productRequest.getId(),
                 productRequest.getProductCode(),
                 productRequest.getProductTitle(),
@@ -44,94 +36,77 @@ public class ProductService {
                 productRequest.getPrice()
         );
 
-        HttpEntity<String> addProductRequest = new HttpEntity<>(addProductRequestBody, headers);
-        String addProductResponse = restTemplate.exchange(graphqlUrl, HttpMethod.POST, addProductRequest, String.class).getBody();
-
-        try {
-            ObjectMapper objectMapper = new ObjectMapper();
-            JsonNode rootNode = objectMapper.readTree(addProductResponse);
-            JsonNode productNode = rootNode.get("data").get("addProduct");
-            Product product = objectMapper.treeToValue(productNode, Product.class);
-
-            return product;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return null;
+        return executeGraphQLMutation(mutation, "addProduct", Product.class);
     }
 
     public List<Product> getAllProducts() {
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-        String graphqlUrl = "http://product-graphql:8181/graphql";
+        String query = "query { allProducts { productTitle, imageUrl, discountOffer, currentPrice }}";
 
-        String allProductRequestBody = "{ \"query\": \"query { allProducts " +
-                "{id, productTitle, imageUrl, discountOffer, price, currentPrice}}\" }";
-
-        HttpEntity<String> allProductRequest = new HttpEntity<>(allProductRequestBody, headers);
-        String allProductResponse = restTemplate.exchange(graphqlUrl,
-                HttpMethod.POST, allProductRequest, String.class).getBody();
-        try {
-            ObjectMapper objectMapper = new ObjectMapper();
-            JsonNode rootNode = objectMapper.readTree(allProductResponse);
-            JsonNode productNode = rootNode.get("data").get("allProducts");
-            List<Product> products = objectMapper.treeToValue(productNode, List.class);
-
-            return products;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return null;
+        return executeGraphQLQuery(query, "allProducts", new TypeReference<List<Product>>() {});
     }
 
     public Product getProductById(Integer productId) {
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-        String graphqlUrl = "http://product-graphql:8181/graphql";
+        String query = String.format("query { productById(id: %d) { id, productTitle, discountOffer, price, currentPrice }}", productId);
 
-        String productByIdRequestBody = "{ \"query\": \"query { productById(id: " + productId + ") { id, productTitle, imageUrl, discountOffer, price, currentPrice}}\" }";
-
-        HttpEntity<String> productByIdRequest = new HttpEntity<>(productByIdRequestBody, headers);
-        String productByIdResponse = restTemplate.exchange(graphqlUrl, HttpMethod.POST, productByIdRequest, String.class).getBody();
-
-        try {
-            ObjectMapper objectMapper = new ObjectMapper();
-            JsonNode rootNode = objectMapper.readTree(productByIdResponse);
-            JsonNode productNode = rootNode.get("data").get("productById");
-            Product product = objectMapper.treeToValue(productNode, Product.class);
-
-            return product;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return null;
+        return executeGraphQLQuery(query, "productById", Product.class);
     }
 
     public Product updatePrice(Integer productId, Double price) {
+        String mutation = String.format(
+                "mutation { addPrice(addPriceRequest: { id: %d, price: %f }) { productTitle, discountOffer, price, currentPrice }}",
+                productId, price
+        );
+
+        return executeGraphQLMutation(mutation, "addPrice", Product.class);
+    }
+
+    private <T> T executeGraphQLQuery(String query, String rootField, Class<T> responseType) {
+        String response = performHttpPostRequest(query);
+        return parseGraphQLResponse(response, rootField, responseType);
+    }
+
+    private <T> T executeGraphQLQuery(String query, String rootField, TypeReference<T> responseType) {
+        String response = performHttpPostRequest(query);
+        return parseGraphQLResponse(response, rootField, responseType);
+    }
+
+    private <T> T executeGraphQLMutation(String mutation, String rootField, Class<T> responseType) {
+        String response = performHttpPostRequest(mutation);
+        return parseGraphQLResponse(response, rootField, responseType);
+    }
+
+    private String performHttpPostRequest(String requestBody) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        String graphqlUrl = "http://product-graphql:8181/graphql";
+        HttpEntity<String> request = new HttpEntity<>(String.format("{\"query\": \"%s\"}", requestBody), headers);
 
-
-        String addPriceRequestBody = "{ \"query\": \"mutation { addPrice(addPriceRequest : {id : " + productId + ", price : " + price + "}) { productTitle, discountOffer, price, currentPrice}}\" }";
-
-        HttpEntity<String> addPriceRequest = new HttpEntity<>(addPriceRequestBody, headers);
-        String addPriceResponse = restTemplate.exchange(graphqlUrl, HttpMethod.POST, addPriceRequest, String.class).getBody();
-
-        try {
-            ObjectMapper objectMapper = new ObjectMapper();
-            JsonNode rootNode = objectMapper.readTree(addPriceResponse);
-            JsonNode productNode = rootNode.get("data").get("addPrice");
-            Product product = objectMapper.treeToValue(productNode, Product.class);
-
-            return product;
-        } catch (Exception e) {
-            e.printStackTrace();
+        ResponseEntity<String> response = restTemplate.exchange(GRAPHQL_URL, HttpMethod.POST, request, String.class);
+        if (response.getStatusCode() != HttpStatus.OK) {
+            log.error("HTTP request failed with status code: {}", response.getStatusCode());
+            return null;
         }
+        return response.getBody();
+    }
 
-        return null;
+    private <T> T parseGraphQLResponse(String response, String rootField, Class<T> responseType) {
+        try {
+            JsonNode rootNode = objectMapper.readTree(response);
+            JsonNode dataNode = rootNode.get("data").get(rootField);
+            return objectMapper.treeToValue(dataNode, responseType);
+        } catch (Exception e) {
+            log.error("Error parsing GraphQL response: {}", e.getMessage());
+            return null;
+        }
+    }
+
+    private <T> T parseGraphQLResponse(String response, String rootField, TypeReference<T> responseType) {
+        try {
+            JsonNode rootNode = objectMapper.readTree(response);
+            JsonNode dataNode = rootNode.get("data").get(rootField);
+            return objectMapper.readValue(dataNode.toString(), responseType);
+        } catch (Exception e) {
+            log.error("Error parsing GraphQL response: {}", e.getMessage());
+            return null;
+        }
     }
 }

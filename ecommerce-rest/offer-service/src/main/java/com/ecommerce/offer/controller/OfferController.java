@@ -22,12 +22,10 @@ public class OfferController {
     @Autowired
     private OfferService offerService;
 
-    @Autowired
-    private SequenceGeneratorService service;
+
 
     @PostMapping("/offer")
     public Product addProductOffer(@RequestBody OfferRequest offerRequest) {
-        offerRequest.setId(service.getSequenceNumber(Offer.SEQUENCE_NAME));
         return offerService.addProductOffer(offerRequest);
     }
 

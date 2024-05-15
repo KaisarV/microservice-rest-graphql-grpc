@@ -1,7 +1,6 @@
 package com.ecommerce.product.controller;
 
 import com.ecommerce.product.collection.Product;
-import com.ecommerce.product.collection.request.AddOfferRequest;
 import com.ecommerce.product.collection.request.AddPriceRequest;
 import com.ecommerce.product.collection.request.ProductRequest;
 import com.ecommerce.product.service.ProductService;

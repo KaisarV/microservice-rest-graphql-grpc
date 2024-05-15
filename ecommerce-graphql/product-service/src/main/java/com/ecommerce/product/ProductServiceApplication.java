@@ -1,17 +1,9 @@
 package com.ecommerce.product;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.graphql.client.HttpGraphQlClient;
-import org.springframework.graphql.server.WebGraphQlInterceptor;
-import org.springframework.graphql.server.WebGraphQlRequest;
-import org.springframework.graphql.server.WebGraphQlResponse;
-import org.springframework.stereotype.Component;
-import reactor.core.publisher.Mono;
-
-import java.util.Arrays;
 
 @SpringBootApplication
 public class ProductServiceApplication {

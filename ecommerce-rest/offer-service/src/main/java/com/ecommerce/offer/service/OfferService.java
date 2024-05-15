@@ -13,6 +13,8 @@ import org.springframework.web.client.RestTemplate;
 import java.util.List;
 import java.util.Optional;
 
+import static org.springframework.util.ClassUtils.isPresent;
+
 @Service
 @Slf4j
 public class OfferService {
@@ -22,15 +24,17 @@ public class OfferService {
     @Autowired
     private RestTemplate restTemplate;
 
+    @Autowired
+    private SequenceGeneratorService service;
+
     public Product addProductOffer(OfferRequest offerRequest) {
         Optional<Offer> offer = offerRepository.findByProductId(offerRequest.getProductId());
-        ResponseTemplateVO vo = new ResponseTemplateVO();
 
         if(offer.isPresent()){
             offer.get().setDiscountOffer(offerRequest.getDiscountOffer());
         }else {
             offer = Optional.ofNullable(new Offer().builder()
-                    .id(offerRequest.getId())
+                    .id(service.getSequenceNumber(Offer.SEQUENCE_NAME))
                     .productId(offerRequest.getProductId())
                     .discountOffer(offerRequest.getDiscountOffer())
                     .build());
@@ -38,13 +42,13 @@ public class OfferService {
 
         offerRepository.save(offer.get());
 
-        Product product = restTemplate.getForObject("http://localhost:8081/product-rest/product/" + offerRequest.getProductId(),Product.class);
+        Product product = restTemplate.getForObject("http://product-rest:8081/product-rest/product/" + offerRequest.getProductId(),Product.class);
 
         Double discountPrice = (offerRequest.getDiscountOffer()*product.getPrice())/100;
         product.setCurrentPrice(product.getPrice()-discountPrice);
         product.setDiscountOffer(offerRequest.getDiscountOffer());
 
-        Product product2 = restTemplate.postForObject("http://localhost:8081/product-rest/addOffer", product, Product.class);
+        Product product2 = restTemplate.postForObject("http://product-rest:8081/product-rest/addOffer", product, Product.class);
 
         return product2;
     }
@@ -57,7 +61,7 @@ public class OfferService {
         ResponseTemplateVO vo = new ResponseTemplateVO();
         Offer offer = offerRepository.findByid(id);
 
-        Product product = restTemplate.getForObject("http://localhost:8081/product-rest/product/" + offer.getProductId(),Product.class);
+        Product product = restTemplate.getForObject("http://product-rest:8081/product-rest/product/" + offer.getProductId(),Product.class);
 
         vo.setOffer(offer);
         vo.setProduct(product);

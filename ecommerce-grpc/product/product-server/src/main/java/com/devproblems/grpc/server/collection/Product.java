@@ -16,8 +16,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "product-rest")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Product {
-    @Transient
-    public static final String SEQUENCE_NAME = "user_sequence";
 
     @Id
     private Integer id;
@@ -28,5 +26,7 @@ public class Product {
     private Double price;
     private Double currentPrice;
 
+    @Transient
+    public static final String SEQUENCE_NAME = "user_sequence";
 
 }

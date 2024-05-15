@@ -23,8 +23,7 @@ public class OfferController {
     @Autowired
     private OfferService offerService;
 
-    @Autowired
-    private SequenceGeneratorService service;
+
 
     private final HttpGraphQlClient httpGraphQlClient;
 
@@ -34,7 +33,7 @@ public class OfferController {
 
     @MutationMapping
     public Product addOffer(@Argument OfferRequest offerRequest) {
-        offerRequest.setId(service.getSequenceNumber(Offer.SEQUENCE_NAME));
+
         return offerService.addProductOffer(offerRequest);
     }
 
