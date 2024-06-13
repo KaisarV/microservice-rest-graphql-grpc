@@ -1,0 +1,23 @@
+server:
+  port: 8004
+
+grpc:
+  server:
+    port: 9003
+
+  client:
+    grpc-product-service:
+      address: static://localhost:9000
+      negotiationType: plaintext
+
+    grpc-offer-service:
+      address: static://localhost:9001
+      negotiationType: plaintext
+
+
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: product-rest

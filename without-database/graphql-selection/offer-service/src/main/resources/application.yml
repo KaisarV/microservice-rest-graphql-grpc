@@ -1,0 +1,18 @@
+server:
+  port: 8184
+
+spring:
+  graphql:
+    graphiql:
+      enabled: true
+
+  websocket:
+    path: /graphql
+
+  application:
+    name: offer-graphql
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: offer-rest

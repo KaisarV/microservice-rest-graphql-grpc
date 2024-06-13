@@ -1,0 +1,17 @@
+server:
+  port: 8004
+
+grpc:
+  server:
+    port: 9006
+
+  client:
+    grpc-product-service:
+      address: static://product-grpc-repeated:9004
+      negotiationType: plaintext
+
+    grpc-offer-service:
+      address: static://offer-grpc:9001
+      negotiationType: plaintext
+
+

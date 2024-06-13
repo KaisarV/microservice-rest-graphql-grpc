@@ -1,0 +1,41 @@
+input OfferRequest {
+    id : Int!
+    productId : Int!
+    discountOffer : Float!
+}
+
+type Response {
+    status : Int!
+    message : String!
+}
+
+type Offer {
+    id : Int!
+    productId : Int!
+    discountOffer : Float!
+}
+
+type Product {
+    id : Int!
+    productCode : String!
+    productTitle : String !
+    imageUrl : String!
+    discountOffer : Float!
+    price : Float!
+    currentPrice :  Float!
+}
+
+type ResponseTemplateVO {
+    offer : Offer!
+    product : Product!
+}
+
+
+type Query {
+    allOffers: [Offer]!
+    offerWithProduct(id : Int): ResponseTemplateVO!
+}
+
+type Mutation {
+    addOffer(offerRequest: OfferRequest!): Product
+}

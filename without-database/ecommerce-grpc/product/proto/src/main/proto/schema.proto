@@ -1,0 +1,80 @@
+syntax = "proto3";
+import "google/protobuf/wrappers.proto";
+
+option java_multiple_files = true;
+
+package com.devProblems;
+
+message Product {
+  int32 id = 1;
+  string productCode = 2;
+  string productTitle = 3;
+  string imageUrl = 4;
+  double discountOffer = 5;
+  double price = 6;
+  double currentPrice = 7;
+}
+
+
+
+message ProductRequest {
+  int32 id = 1;
+  string productCode = 2;
+  string productTitle = 3;
+  string imageUrl = 4;
+  double discountOffer = 5;
+  double price = 6;
+}
+
+message DbSequence {
+  string id = 1;
+  int32 seq = 2;
+}
+
+message Offer {
+  int32 id = 1;
+  int32 productId = 2;
+  double discountOffer = 3;
+}
+
+message OfferRequest {
+  int32 id = 1;
+  int32 productId = 2;
+  double discountOffer = 3;
+}
+
+message ResponseTemplateVO {
+  Offer offer = 1;
+  Product product = 2;
+}
+
+service OfferService {
+  rpc AddProductOffer(OfferRequest) returns (Product) {}
+  rpc GetOffers(Empty) returns (stream Offer) {}
+  rpc GetOfferWithProduct(Offer) returns (ResponseTemplateVO) {}
+}
+
+message ProductsResponse {
+  repeated Product products = 1;
+}
+
+service ProductService {
+  rpc SaveProduct(ProductRequest) returns (Product) {}
+  rpc GetAllProducts(Empty) returns (ProductsResponse) {}
+  rpc GetProductById(Product) returns (Product) {}
+  rpc AddProductOffer(AddProductOfferRequest) returns (Product) {}
+  rpc AddPrice(AddPriceRequest) returns (Product) {}
+  rpc SaveOffer(Product) returns (Product) {}
+}
+
+message Empty {}
+
+message AddProductOfferRequest {
+  int32 productId = 1;
+  double discountOffer = 2;
+}
+
+message AddPriceRequest {
+  int32 id = 1;
+  double price = 2;
+}

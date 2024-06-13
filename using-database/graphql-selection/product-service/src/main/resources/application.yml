@@ -1,0 +1,20 @@
+server:
+    port: 8183
+
+
+spring:
+  graphql:
+    graphiql:
+      enabled: true
+
+  websocket:
+    path: /graphql
+
+  application:
+    name: product-graphql
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: product-rest
+

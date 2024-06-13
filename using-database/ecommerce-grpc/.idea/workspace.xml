@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4b2a6551-f29c-40ac-b107-244c2058ef90" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/.idea/dbnavigator.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/.idea/ecommerce-rest.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/.idea/jpa-buddy.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/api-gateway-selection/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/api-gateway-selection/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/api-gateway-selection/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/api-gateway-selection/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/api-gateway-selection/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/api-gateway-selection/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/api-gateway-selection/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/api-gateway-selection/src/main/java/com/ecommerce/apigateway/ApiGatewayApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/api-gateway-selection/src/main/java/com/ecommerce/apigateway/collection/Offer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/api-gateway-selection/src/main/java/com/ecommerce/apigateway/collection/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/api-gateway-selection/src/main/java/com/ecommerce/apigateway/collection/request/OfferRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/api-gateway-selection/src/main/java/com/ecommerce/apigateway/collection/request/ProductRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/api-gateway-selection/src/main/java/com/ecommerce/apigateway/collection/request/ResponseTemplateVO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/api-gateway-selection/src/main/java/com/ecommerce/apigateway/controller/OfferController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/api-gateway-selection/src/main/java/com/ecommerce/apigateway/controller/ProductController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/api-gateway-selection/src/main/java/com/ecommerce/apigateway/service/OfferService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/api-gateway-selection/src/main/java/com/ecommerce/apigateway/service/ProductService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/api-gateway-selection/src/main/resources/application-docker.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/api-gateway-selection/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/api-gateway-selection/src/test/java/com/ecommerce/apigateway/ApiGatewayApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/api-gateway/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/api-gateway/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/api-gateway/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/api-gateway/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/api-gateway/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/api-gateway/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/api-gateway/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/api-gateway/src/main/java/com/ecommerce/apigateway/ApiGatewayApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/api-gateway/src/main/java/com/ecommerce/apigateway/collection/Offer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/api-gateway/src/main/java/com/ecommerce/apigateway/collection/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/api-gateway/src/main/java/com/ecommerce/apigateway/collection/request/OfferRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/api-gateway/src/main/java/com/ecommerce/apigateway/collection/request/ProductRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/api-gateway/src/main/java/com/ecommerce/apigateway/collection/request/ResponseTemplateVO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/api-gateway/src/main/java/com/ecommerce/apigateway/controller/OfferController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/api-gateway/src/main/java/com/ecommerce/apigateway/controller/ProductController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/api-gateway/src/main/java/com/ecommerce/apigateway/service/OfferService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/api-gateway/src/main/java/com/ecommerce/apigateway/service/ProductService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/api-gateway/src/main/resources/application-docker.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/api-gateway/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/api-gateway/src/test/java/com/ecommerce/apigateway/ApiGatewayApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/offer-service/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/offer-service/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/offer-service/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/offer-service/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/offer-service/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/offer-service/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/offer-service/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/offer-service/src/main/java/com/ecommerce/offer/OfferServiceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/offer-service/src/main/java/com/ecommerce/offer/VO/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/offer-service/src/main/java/com/ecommerce/offer/VO/ResponseTemplateVO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/offer-service/src/main/java/com/ecommerce/offer/collection/DbSequence.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/offer-service/src/main/java/com/ecommerce/offer/collection/Offer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/offer-service/src/main/java/com/ecommerce/offer/collection/request/OfferRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/offer-service/src/main/java/com/ecommerce/offer/controller/OfferController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/offer-service/src/main/java/com/ecommerce/offer/repository/OfferRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/offer-service/src/main/java/com/ecommerce/offer/service/OfferService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/offer-service/src/main/java/com/ecommerce/offer/service/SequenceGeneratorService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/offer-service/src/main/resources/application-docker.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/offer-service/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/offer-service/src/main/resources/graphql/offer.graphqls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/offer-service/src/test/java/com/ecommerce/offer/OfferServiceApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/product-service/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/product-service/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/product-service/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/product-service/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/product-service/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/product-service/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/product-service/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/product-service/src/main/java/com/ecommerce/product/ProductServiceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/product-service/src/main/java/com/ecommerce/product/collection/DbSequence.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/product-service/src/main/java/com/ecommerce/product/collection/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/product-service/src/main/java/com/ecommerce/product/collection/request/AddOfferRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/product-service/src/main/java/com/ecommerce/product/collection/request/AddPriceRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/product-service/src/main/java/com/ecommerce/product/collection/request/ProductRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/product-service/src/main/java/com/ecommerce/product/controller/ProductController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/product-service/src/main/java/com/ecommerce/product/repository/ProductRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/product-service/src/main/java/com/ecommerce/product/service/ProductService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/product-service/src/main/java/com/ecommerce/product/service/SequenceGeneratorService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/product-service/src/main/resources/application-docker.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/product-service/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/product-service/src/main/resources/graphql/product.graphqls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-graphql/product-service/src/test/java/com/ecommerce/product/ProductServiceApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/.idea/dbnavigator.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/gatewayy/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/gatewayy/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/gatewayy/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/gatewayy/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/gatewayy/gateway-server/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/gatewayy/gateway-server/src/main/java/com/devproblems/grpc/server/ApiGateway.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/gatewayy/gateway-server/src/main/java/com/devproblems/grpc/server/collection/Offer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/gatewayy/gateway-server/src/main/java/com/devproblems/grpc/server/collection/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/gatewayy/gateway-server/src/main/java/com/devproblems/grpc/server/collection/request/OfferRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/gatewayy/gateway-server/src/main/java/com/devproblems/grpc/server/collection/request/ProductRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/gatewayy/gateway-server/src/main/java/com/devproblems/grpc/server/controller/OfferController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/gatewayy/gateway-server/src/main/java/com/devproblems/grpc/server/controller/ProductController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/gatewayy/gateway-server/src/main/java/com/devproblems/grpc/server/service/OfferClientService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/gatewayy/gateway-server/src/main/java/com/devproblems/grpc/server/service/ProductClientService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/gatewayy/gateway-server/src/main/java/com/devproblems/grpc/server/service/ProtobufUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/gatewayy/gateway-server/src/main/resources/application-docker.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/gatewayy/gateway-server/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/gatewayy/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/gatewayy/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/gatewayy/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/gatewayy/proto/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/gatewayy/proto/src/main/proto/schema.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/offer/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/offer/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/offer/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/offer/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/offer/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/offer/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/offer/offer-server/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/offer/offer-server/src/main/java/com/devproblems/grpc/client/OfferService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/offer/offer-server/src/main/java/com/devproblems/grpc/client/VO/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/offer/offer-server/src/main/java/com/devproblems/grpc/client/VO/ResponseTemplateVO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/offer/offer-server/src/main/java/com/devproblems/grpc/client/collection/DbSequence.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/offer/offer-server/src/main/java/com/devproblems/grpc/client/collection/Offer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/offer/offer-server/src/main/java/com/devproblems/grpc/client/collection/request/OfferRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/offer/offer-server/src/main/java/com/devproblems/grpc/client/repository/OfferRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/offer/offer-server/src/main/java/com/devproblems/grpc/client/service/OfferServerService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/offer/offer-server/src/main/java/com/devproblems/grpc/client/service/SequenceGeneratorService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/offer/offer-server/src/main/resources/application-docker.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/offer/offer-server/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/offer/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/offer/proto/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/offer/proto/src/main/proto/schema.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/product/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/product/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/product/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/product/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/product/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/product/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/product/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/product/product-server/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/product/product-server/src/main/java/com/devproblems/grpc/server/ProductService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/product/product-server/src/main/java/com/devproblems/grpc/server/collection/DbSequence.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/product/product-server/src/main/java/com/devproblems/grpc/server/collection/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/product/product-server/src/main/java/com/devproblems/grpc/server/repository/ProductRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/product/product-server/src/main/java/com/devproblems/grpc/server/service/ProductServerService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/product/product-server/src/main/java/com/devproblems/grpc/server/service/SequenceGeneratorService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/product/product-server/src/main/resources/application-docker.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/product/product-server/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/product/proto/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/product/proto/src/main/proto/schema.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-grpc/spring-boot-grpc.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/dbnavigator.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/ecommerce-rest.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/jpa-buddy.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_12.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__ch_qos_logback_logback_core_1_2_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__ch_qos_logback_logback_core_1_2_12.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__com_fasterxml_classmate_1_5_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_13_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_13_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_13_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jdk8_2_13_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_13_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_parameter_names_2_13_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__com_jayway_jsonpath_json_path_2_7_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__com_vaadin_external_google_android_json_0_0_20131108_vaadin1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__io_micrometer_micrometer_core_1_9_10.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__io_netty_netty_buffer_4_1_91_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__io_netty_netty_codec_4_1_91_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__io_netty_netty_codec_dns_4_1_91_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__io_netty_netty_codec_http2_4_1_91_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__io_netty_netty_codec_http_4_1_91_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__io_netty_netty_codec_socks_4_1_91_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__io_netty_netty_common_4_1_91_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__io_netty_netty_handler_4_1_91_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__io_netty_netty_handler_proxy_4_1_91_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__io_netty_netty_resolver_4_1_91_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__io_netty_netty_resolver_dns_4_1_91_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__io_netty_netty_resolver_dns_classes_macos_4_1_91_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__io_netty_netty_resolver_dns_native_macos_osx_x86_64_4_1_91_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__io_netty_netty_transport_4_1_91_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__io_netty_netty_transport_classes_epoll_4_1_91_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__io_netty_netty_transport_native_epoll_linux_x86_64_4_1_91_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__io_netty_netty_transport_native_unix_common_4_1_91_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__io_projectreactor_addons_reactor_extra_3_4_10.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__io_projectreactor_netty_reactor_netty_core_1_0_31.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__io_projectreactor_netty_reactor_netty_http_1_0_31.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__io_projectreactor_reactor_core_3_4_29.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__jakarta_activation_jakarta_activation_api_1_2_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__jakarta_annotation_jakarta_annotation_api_1_3_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__jakarta_validation_jakarta_validation_api_2_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__jakarta_xml_bind_jakarta_xml_bind_api_2_3_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_12_23.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__net_bytebuddy_byte_buddy_agent_1_12_23.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__net_minidev_accessors_smart_2_4_9.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__net_minidev_json_smart_2_4_10.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_17_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_apache_logging_log4j_log4j_to_slf4j_2_17_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_9_0_73.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_9_0_74.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_el_9_0_73.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_el_9_0_74.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_9_0_73.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_9_0_74.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_assertj_assertj_core_3_22_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_bouncycastle_bcpkix_jdk15on_1_69.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_bouncycastle_bcprov_jdk15on_1_69.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_bouncycastle_bcutil_jdk15on_1_69.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_hamcrest_hamcrest_2_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_hdrhistogram_HdrHistogram_2_1_12.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_hibernate_validator_hibernate_validator_6_2_5_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_4_3_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_5_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_params_5_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_latencyutils_LatencyUtils_2_0_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_mockito_mockito_core_4_5_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_mockito_mockito_junit_jupiter_4_5_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_mongodb_bson_4_6_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_mongodb_bson_record_codec_4_6_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_mongodb_mongodb_driver_core_4_6_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_mongodb_mongodb_driver_sync_4_6_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_objenesis_objenesis_3_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_ow2_asm_asm_9_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_projectlombok_lombok_1_18_26.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_reactivestreams_reactive_streams_1_0_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_skyscreamer_jsonassert_1_5_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_36.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_36.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_7_10.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_7_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_boot_spring_boot_actuator_2_7_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_boot_spring_boot_actuator_autoconfigure_2_7_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_7_10.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_7_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_7_10.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_7_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_actuator_2_7_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_mongodb_2_7_10.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_json_2_7_10.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_json_2_7_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_2_7_10.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_2_7_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_reactor_netty_2_7_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_2_7_10.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_2_7_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_2_7_10.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_2_7_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_validation_2_7_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_7_10.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_webflux_2_7_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_2_7_10.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_2_7_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_2_7_10.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_2_7_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_commons_3_1_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_context_3_1_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_gateway_server_3_1_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_3_1_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_gateway_3_1_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_data_spring_data_commons_2_7_10.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_data_spring_data_mongodb_3_4_10.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_security_spring_security_crypto_5_7_7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_security_spring_security_crypto_5_7_8.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_security_spring_security_rsa_1_0_11_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_spring_aop_5_3_26.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_spring_aop_5_3_27.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_spring_beans_5_3_26.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_spring_beans_5_3_27.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_spring_context_5_3_26.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_spring_context_5_3_27.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_spring_core_5_3_26.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_spring_core_5_3_27.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_spring_expression_5_3_26.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_spring_expression_5_3_27.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_spring_jcl_5_3_26.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_spring_jcl_5_3_27.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_spring_test_5_3_26.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_spring_test_5_3_27.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_spring_tx_5_3_26.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_spring_web_5_3_26.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_spring_web_5_3_27.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_spring_webflux_5_3_27.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_springframework_spring_webmvc_5_3_26.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_xmlunit_xmlunit_core_2_9_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/libraries/Maven__org_yaml_snakeyaml_1_30.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/api-gateway/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/api-gateway/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/api-gateway/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/api-gateway/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/api-gateway/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/api-gateway/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/api-gateway/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/api-gateway/src/main/java/com/ecommerce/apigateway/ApiGatewayApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/api-gateway/src/main/resources/application-docker.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/api-gateway/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/api-gateway/src/test/java/com/ecommerce/apigateway/ApiGatewayApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/offer-service/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/offer-service/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/offer-service/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/offer-service/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/offer-service/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/offer-service/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/offer-service/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/offer-service/src/main/java/com/ecommerce/offer/OfferServiceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/offer-service/src/main/java/com/ecommerce/offer/VO/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/offer-service/src/main/java/com/ecommerce/offer/VO/ResponseTemplateVO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/offer-service/src/main/java/com/ecommerce/offer/collection/DbSequence.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/offer-service/src/main/java/com/ecommerce/offer/collection/Offer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/offer-service/src/main/java/com/ecommerce/offer/collection/request/OfferRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/offer-service/src/main/java/com/ecommerce/offer/controller/OfferController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/offer-service/src/main/java/com/ecommerce/offer/repository/OfferRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/offer-service/src/main/java/com/ecommerce/offer/service/OfferService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/offer-service/src/main/java/com/ecommerce/offer/service/SequenceGeneratorService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/offer-service/src/main/resources/application-docker.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/offer-service/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/offer-service/src/test/java/com/ecommerce/offer/OfferServiceApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/product-service/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/product-service/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/product-service/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/product-service/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/product-service/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/product-service/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/product-service/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/product-service/src/main/java/com/ecommerce/product/ProductServiceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/product-service/src/main/java/com/ecommerce/product/collection/DbSequence.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/product-service/src/main/java/com/ecommerce/product/collection/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/product-service/src/main/java/com/ecommerce/product/collection/request/ProductRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/product-service/src/main/java/com/ecommerce/product/controller/ProductController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/product-service/src/main/java/com/ecommerce/product/repository/ProductRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/product-service/src/main/java/com/ecommerce/product/service/ProductService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/product-service/src/main/java/com/ecommerce/product/service/SequenceGeneratorService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/product-service/src/main/resources/application-docker.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/product-service/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ecommerce-rest/product-service/src/test/java/com/ecommerce/product/ProductServiceApplicationTests.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2cp9mkWPs2YAmckvQr5fHaBtl6R" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.OfferService.executor": "Run",
+    "Application.ProductService.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "E:/Metpen/microservice-app/using-database/ecommerce-grpc/product"
+  }
+}]]></component>
+  <component name="RunManager" selected="Application.OfferService">
+    <configuration name="OfferService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.devproblems.grpc.client.OfferService" />
+      <module name="client-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.devproblems.grpc.client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProductService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.devproblems.grpc.server.ProductService" />
+      <module name="product-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.devproblems.grpc.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.OfferService" />
+        <item itemvalue="Application.ProductService" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4b2a6551-f29c-40ac-b107-244c2058ef90" name="Changes" comment="" />
+      <created>1708797818518</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1708797818518</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

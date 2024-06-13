@@ -1,0 +1,11 @@
+server:
+    port: 8183
+
+spring:
+  application:
+    name: product-graphql-selection
+  data:
+    mongodb:
+      host: ecommerce-mongo
+      port: 27017
+      database: product-graphql

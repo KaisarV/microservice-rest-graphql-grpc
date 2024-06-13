@@ -1,0 +1,11 @@
+server:
+  port: 8182
+
+spring:
+  application:
+    name: offer-graphql
+  data:
+    mongodb:
+      host: ecommerce-mongo
+      port: 27017
+      database: offer-graphql

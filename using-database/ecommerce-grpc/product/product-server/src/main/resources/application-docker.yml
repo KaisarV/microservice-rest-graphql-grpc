@@ -1,0 +1,19 @@
+server:
+  port: 8283
+
+grpc:
+  server:
+    port: 9004
+
+  client:
+    grpc-product-service:
+      address: static://product-grpc-repeated:9004
+      negotiationType: plaintext
+
+
+spring:
+  data:
+    mongodb:
+      host: ecommerce-mongo
+      port: 27017
+      database: product-grpc
